@@ -1,0 +1,8 @@
+Para crear una nueva carpeta de componentes, de las cuales crearemos 
+las vistas de la carpeta raíz "nombreTabla/nombreTabla-accion", pj: 
+auditorio/auditorio-crear, o auditorio/auditorio-listar, etc. 
+Usaremos el comando
+    ng generate component nombreTabla/nombreTabla-accion
+Generando, de momento, solo las vistas de listar y crear. Que mostraran 
+una tabla estatica con todas las columnas que tiene cada tabla y un 
+formulario con los campos correspondientes de las columnas de dicha tabla. 
