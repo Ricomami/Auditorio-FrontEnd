@@ -3,22 +3,24 @@
 <br>
 <br>
 <b><p>Creación de las tablas para mostrar todos los auditorios</p></b>
-
-<table class="table table-dark">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let auditorio of auditorios">
-      <th scope="row"> {{ auditorio.id }}</th>
-      <td>{{ auditorio.nombre }}</td>
-      <td>{{ auditorio.direccion }}</td>
-      <td>{{ auditorio.estado }}</td>
-    </tr>
-  </tbody>
-</table>
+<div class="container">
+    
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">First</th>
+          <th scope="col">Last</th>
+          <th scope="col">Handle</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let auditorio of auditorios">
+          <th scope="row"> {{ auditorio.id }}</th>
+          <td>{{ auditorio.nombre }}</td>
+          <td>{{ auditorio.direccion }}</td>
+          <td>{{ auditorio.estado }}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
