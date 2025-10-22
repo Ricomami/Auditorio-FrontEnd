@@ -1,1 +1,57 @@
-<p>seccion-listar works!</p>
+LISTAR SECCIONES SIN COLUMNAS CORRESPONDIENTES A LA BD
+<div class="container">
+  <h1 class="mt-5">Pagina de secciones</h1>
+  <a [routerLink]="['/seccion/crear']" href="#">Crear una nueva seccion</a>
+    
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">First</th>
+          <th scope="col">Last</th>
+          <th scope="col">Handle</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row"></th>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+
+LISTAR USUARIOS CON COLUMNAS CORRESPONDIENTES A LA BD
+<div class="container">
+  <h1 class="mt-5">Pagina de secciones</h1>
+  <a [routerLink]="['/seccion/crear']" href="#">Crear una nueva seccion</a>
+    
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre Seccion</th>
+          <th scope="col">Precio Base</th>
+          <th scope="col">ID de Auditorio</th>
+          <th scope="col">Imagen</th>
+          <th scope="col">Estado</th>
+          <th scope="col">Creada</th>
+          <th scope="col">Actualizada</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let seccion of secciones ">
+          <th scope="row"> {{ seccion.id }}</th>
+          <td>{{ seccion.nombre }}</td>
+          <td>{{ seccion.precio }}</td>
+          <td>{{ seccion.id_auditorio }}</td>
+          <td>{{ seccion.imagen }}</td>
+          <td>{{ seccion.estado }}</td>
+          <td>{{ seccion.creado }}</td>
+          <td>{{ seccion.actualizado }}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>

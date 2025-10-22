@@ -1,1 +1,53 @@
-<p>seccion-crear works!</p>
+<!-- CUESTIONARIO SIN COLUMNAS CORRESPONDIENTES A LA BD -->
+<div class="container">
+    <h1 class="mt-5">Crear seccion nueva</h1>
+    <a [routerLink]="['/seccion']" href="#">Regresar</a>
+
+    <form>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1">
+        </div>
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+<!-- CUESTIONARIO CON COLUMNAS CORRESPONDIENTES A LA BD -->
+<div class="container">
+    <h1 class="mt-5">Crear seccion nueva</h1>
+    <a [routerLink]="['/seccion']" href="#">Regresar</a>
+
+    <form class="mt-5">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Nombre de la Seccion</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Precio base</label>
+            <input type="text" class="form-control" id="exampleInputPassword1">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Id del auditorio con esta seccion</label>
+            <input type="text" class="form-control" id="exampleInputPassword1">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Imagen</label>
+            <input type="text" class="form-control" id="exampleInputPassword1">
+        </div>
+        <select class="form-select mb-3" aria-label="Default select example">
+            <option selected>Estado</option>
+            <option value="1">Activo</option>
+            <option value="2">Inactivo</option>
+            <option value="3">Mantenimiento</option>
+        </select>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
