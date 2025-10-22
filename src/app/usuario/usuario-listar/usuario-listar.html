@@ -1,1 +1,57 @@
-<p>usuario-listar works!</p>
+LISTAR USUARIOS SIN COLUMNAS CORRESPONDIENTES A LA BD
+<div class="container">
+  <h1 class="mt-5">Pagina de usuarios</h1>
+  <a [routerLink]="['/usuario/crear']" href="#">Crear un nuevo usuario</a>
+    
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">First</th>
+          <th scope="col">Last</th>
+          <th scope="col">Handle</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let usuario of usuarios ">
+          <th scope="row"> {{ usuario.id }}</th>
+          <td>{{ usuario.nombre }}</td>
+          <td>{{ usuario.direccion }}</td>
+          <td>{{ usuario.estado }}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+
+LISTAR USUARIOS CON COLUMNAS CORRESPONDIENTES A LA BD
+<div class="container">
+  <h1 class="mt-5">Pagina de usuarios</h1>
+  <a [routerLink]="['/usuario/crear']" href="#">Crear un nuevo usuario</a>
+    
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre Usuario</th>
+          <th scope="col">Contraseña</th>
+          <th scope="col">Rol</th>
+          <th scope="col">Imagen Usuario</th>
+          <th scope="col">Estado</th>
+          <th scope="col">Creado</th>
+          <th scope="col">Actualizado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let usuario of usuarios ">
+          <th scope="row"> {{ usuario.id }}</th>
+          <td>{{ usuario.nombre }}</td>
+          <td>{{ usuario.contrasena }}</td>
+          <td>{{ usuario.rol }}</td>
+          <td>{{ usuario.imagen }}</td>
+          <td>{{ usuario.estado }}</td>
+          <td>{{ usuario.creado }}</td>
+          <td>{{ usuario.actualizado }}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
