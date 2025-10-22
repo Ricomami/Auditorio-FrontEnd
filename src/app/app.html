@@ -7,58 +7,69 @@
 <!-- * * * * * * * to get started with your project! * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-        <img src="/src/assets/images/AUDORO_LOGO.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
-        Audoro
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/asiento']" href="#">Asientos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/auditorio']" href="#">Auditorios</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/clientes']" href="#">Clientes</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/entradas']" href="#">Entradas</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/eventos']" href="#">Eventos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/eventos_artista']" href="#">Eventos de Artistas</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/funcion']" href="#">Funciones</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/pago']" href="#">Pagos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/seccion']" href="#">Secciones</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/usuario']" href="#">Usuarios</a>
-          </li>
-        </ul>
-      </div>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="/src/assets/images/AUDORO_LOGO.png" alt="Logo" width="30" height="24"
+        class="d-inline-block align-text-top">
+      Audoro
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/asiento']" href="#">Asientos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/auditorio']" href="#">Auditorios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/clientes']" href="#">Clientes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/entradas']" href="#">Entradas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/eventos']" href="#">Eventos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/eventos_artista']" href="#">Eventos de Artistas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/funcion']" href="#">Funciones</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/pago']" href="#">Pagos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/seccion']" href="#">Secciones</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/usuario']" href="#">Usuarios</a>
+        </li>
+      </ul>
     </div>
-  </nav>
-  
-  <router-outlet />
-  
-<h1>Footer >:D</h1>
+  </div>
+</nav>
+
+<router-outlet />
+<footer class="py-3 my-4">
+  <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+    <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
+    <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Features</a></li>
+    <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Pricing</a></li>
+    <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
+    <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
+  </ul>
+  <p class="text-center text-body-secondary">© 2025 Company, Inc</p>
+</footer>
+
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
