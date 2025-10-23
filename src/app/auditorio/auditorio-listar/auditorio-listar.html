@@ -1,4 +1,4 @@
-LISTAR SECCIONES SIN COLUMNAS CORRESPONDIENTES A LA BD
+<!-- LISTAR SECCIONES SIN COLUMNAS CORRESPONDIENTES A LA BD
 <div class="container">
   <h1 class="mt-5">Pagina de auditorios</h1>
   <a [routerLink]="['/auditorio/crear']" href="#">Crear una nueva auditorio</a>
@@ -21,7 +21,7 @@ LISTAR SECCIONES SIN COLUMNAS CORRESPONDIENTES A LA BD
         </tr>
       </tbody>
     </table>
-</div>
+</div> -->
 
 <div class="container">
   <h1 class="mt-5">Pagina de auditorios</h1>
@@ -42,14 +42,14 @@ LISTAR SECCIONES SIN COLUMNAS CORRESPONDIENTES A LA BD
       </thead>
       <tbody>
         <tr *ngFor="let auditorio of auditorios">
-          <th scope="row"> {{ auditorio.id }}</th>
+          <th scope="row"> {{ auditorio.id_auditorio }}</th>
           <td>{{ auditorio.nombre }}</td>
           <td>{{ auditorio.capacidad}}</td>
           <td>{{ auditorio.direccion }}</td>
-          <td>{{ auditorio.imagen }}</td>
+          <td>{{ auditorio.imagen_auditorio }}</td>
           <td>{{ auditorio.estado }}</td>
-          <td>{{ auditorio.creado }}</td>
-          <td>{{ auditorio.actualizado }}</td>
+          <!-- <td>{{ auditorio.creado }}</td>
+          <td>{{ auditorio.actualizado }}</td> -->
         </tr>
       </tbody>
     </table>
