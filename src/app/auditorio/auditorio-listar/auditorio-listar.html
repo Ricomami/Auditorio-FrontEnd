@@ -1,26 +1,23 @@
-<p>auditorio-crear works!</p>
-<a [routerLink]="['/auditorio/crear']" href="#">Crear un nuevo auditorio</a>
-<br>
-<br>
-<b><p>Creación de las tablas para mostrar todos los auditorios</p></b>
-<div class="container">
-    
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">First</th>
-          <th scope="col">Last</th>
-          <th scope="col">Handle</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let auditorio of auditorios">
-          <th scope="row"> {{ auditorio.id }}</th>
-          <td>{{ auditorio.nombre }}</td>
-          <td>{{ auditorio.direccion }}</td>
-          <td>{{ auditorio.estado }}</td>
-        </tr>
-      </tbody>
-    </table>
+<div class="tabla-container">
+  <h2>Listado de Auditorios</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Capacidad</th>
+        <th>Dirección</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let auditorio of auditorios">
+        <td>{{ auditorio.id }}</td>
+        <td>{{ auditorio.nombre }}</td>
+        <td>{{ auditorio.capacidad }}</td>
+        <td>{{ auditorio.direccion }}</td>
+        <td>{{ auditorio.estado }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>

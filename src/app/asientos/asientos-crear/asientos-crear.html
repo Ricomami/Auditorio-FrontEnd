@@ -1,0 +1,23 @@
+<div class="form-container">
+  <h2>Registrar Asiento</h2>
+  <form (ngSubmit)="guardar()">
+    <label>Sección ID:</label>
+    <input type="number" [(ngModel)]="asiento.seccion_id" name="seccion_id" required>
+
+    <label>Fila:</label>
+    <input type="text" [(ngModel)]="asiento.fila" name="fila" maxlength="1" required>
+
+    <label>Número de Asiento:</label>
+    <input type="number" [(ngModel)]="asiento.numero_asiento" name="numero_asiento" required>
+
+    <label>Estado:</label>
+    <select [(ngModel)]="asiento.estado" name="estado">
+      <option>Activo</option>
+      <option>Inactivo</option>
+      <option>Pendiente</option>
+    </select>
+
+    <button type="submit">Guardar</button>
+  </form>
+</div>
+

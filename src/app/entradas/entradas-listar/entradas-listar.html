@@ -1,0 +1,24 @@
+<div class="tabla-container">
+  <h2>Listado de Entradas</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Asiento</th>
+        <th>Cliente</th>
+        <th>Precio Final</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let entrada of entradas">
+        <td>{{ entrada.id }}</td>
+        <td>{{ entrada.asiento_id }}</td>
+        <td>{{ entrada.cliente_id }}</td>
+        <td>${{ entrada.precio_final }}</td>
+        <td>{{ entrada.estado }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

@@ -1,0 +1,26 @@
+<div class="form-container">
+  <h2>Registrar Entrada</h2>
+  <form (ngSubmit)="guardar()">
+    <label>Asiento ID:</label>
+    <input type="number" [(ngModel)]="entrada.asiento_id" name="asiento_id" required>
+
+    <label>Cliente ID:</label>
+    <input type="number" [(ngModel)]="entrada.cliente_id" name="cliente_id" required>
+
+    <label>Función ID:</label>
+    <input type="number" [(ngModel)]="entrada.funcion_id" name="funcion_id" required>
+
+    <label>Precio Final:</label>
+    <input type="number" step="0.01" [(ngModel)]="entrada.precio_final" name="precio_final">
+
+    <label>Estado:</label>
+    <select [(ngModel)]="entrada.estado" name="estado">
+      <option>Activo</option>
+      <option>Inactivo</option>
+      <option>Pendiente</option>
+      <option>Archivado</option>
+    </select>
+
+    <button type="submit">Guardar</button>
+  </form>
+</div>

@@ -1,1 +1,27 @@
-<p>Creación del formulario para crear auditorios</p>
+<div class="form-container">
+  <h2>Registrar Auditorio</h2>
+  <form (ngSubmit)="guardar()">
+    <label>Nombre:</label>
+    <input type="text" [(ngModel)]="auditorio.nombre" name="nombre" required>
+
+    <label>Capacidad:</label>
+    <input type="number" [(ngModel)]="auditorio.capacidad" name="capacidad" required>
+
+    <label>Dirección:</label>
+    <input type="text" [(ngModel)]="auditorio.direccion" name="direccion">
+
+    <label>Imagen (URL):</label>
+    <input type="text" [(ngModel)]="auditorio.imagen" name="imagen">
+
+    <label>Estado:</label>
+    <select [(ngModel)]="auditorio.estado" name="estado">
+      <option>Activo</option>
+      <option>Inactivo</option>
+      <option>Pendiente</option>
+      <option>Archivado</option>
+    </select>
+
+    <button type="submit">Guardar</button>
+  </form>
+</div>
+
