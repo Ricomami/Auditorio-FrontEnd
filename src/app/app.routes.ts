@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 
-// import {ArtistaCrear} from  './';
-// import {ArtistaListar} from  './';
+import {ArtistaCrear} from  './artista/artista-crear/artista-crear';
+import {ArtistaListar} from  './artista/artista-listar/artista-listar';
 // import {AsientoCrear} from  './';
 // import {AsientoListar} from  './';
 import {AuditorioCrear} from  './auditorio/auditorio-crear/auditorio-crear';
@@ -24,8 +24,8 @@ import {UsuarioListar} from './usuario/usuario-listar/usuario-listar'
 import {UsuarioCrear} from './usuario/usuario-crear/usuario-crear'
 
 export const routes: Routes = [
-    // {path: 'artista', component: ArtistaListar },
-    // {path: 'artista/crear', component: ArtistaCrear},
+    {path: 'artista', component: ArtistaListar },
+    {path: 'artista/crear', component: ArtistaCrear},
     // {path: 'asiento', component: AsientoListar },
     // {path: 'asiento/crear', component: AsientoCrear},
     {path: 'auditorio', component: AuditorioListar },
