@@ -1,0 +1,27 @@
+<div class="form-container">
+  <h2>Registrar Cliente</h2>
+  <form (ngSubmit)="guardar()">
+    <label>Nombre:</label>
+    <input type="text" [(ngModel)]="cliente.nombre" name="nombre" required>
+
+    <label>Apellido Paterno:</label>
+    <input type="text" [(ngModel)]="cliente.apellido_pat" name="apellido_pat" required>
+
+    <label>Apellido Materno:</label>
+    <input type="text" [(ngModel)]="cliente.apellido_mat" name="apellido_mat">
+
+    <label>Correo:</label>
+    <input type="email" [(ngModel)]="cliente.correo" name="correo">
+
+    <label>Teléfono:</label>
+    <input type="text" [(ngModel)]="cliente.telefono" name="telefono" maxlength="10">
+
+    <label>Estado:</label>
+    <select [(ngModel)]="cliente.estado" name="estado">
+      <option>Activo</option>
+      <option>Inactivo</option>
+    </select>
+
+    <button type="submit">Guardar</button>
+  </form>
+</div>

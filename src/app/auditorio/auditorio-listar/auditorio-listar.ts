@@ -6,7 +6,7 @@ import { RouterLink } from '@angular/router';
   selector: 'app-auditorio-listar',
   imports: [RouterLink, CommonModule],
   templateUrl: './auditorio-listar.html',
-  styleUrl: './auditorio-listar.css',
+  styleUrl: './auditorio-listar.css'
 })
 export class AuditorioListar {
   auditorios = [

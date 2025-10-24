@@ -1,5 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FuncionListar } from './funcion-listar';
 
 describe('FuncionListar', () => {
@@ -11,6 +12,7 @@ describe('FuncionListar', () => {
       imports: [FuncionListar]
     })
     .compileComponents();
+
 
     fixture = TestBed.createComponent(FuncionListar);
     component = fixture.componentInstance;

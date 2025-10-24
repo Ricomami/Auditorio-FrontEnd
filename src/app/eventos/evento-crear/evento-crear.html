@@ -1,0 +1,36 @@
+<div class="contenedor">
+  <h2>Registrar Evento</h2>
+
+  <form (ngSubmit)="guardar()">
+    <label>Nombre del Evento:</label>
+    <input type="text" [(ngModel)]="evento.nombre_evento" name="nombre_evento" required>
+
+    <label>Descripción:</label>
+    <textarea [(ngModel)]="evento.descripcion" name="descripcion"></textarea>
+
+    <label>Imagen (URL):</label>
+    <input type="text" [(ngModel)]="evento.imagen_evento" name="imagen_evento">
+
+    <label>Fecha:</label>
+    <input type="datetime-local" [(ngModel)]="evento.fecha" name="fecha" required>
+
+    <label>Hora de Finalización:</label>
+    <input type="datetime-local" [(ngModel)]="evento.hora_fin" name="hora_fin" required>
+
+    <label>Aforo:</label>
+    <input type="number" [(ngModel)]="evento.aforo" name="aforo" required>
+
+    <label>ID del Auditorio:</label>
+    <input type="number" [(ngModel)]="evento.auditorio_id" name="auditorio_id" required>
+
+    <label>Estado:</label>
+    <select [(ngModel)]="evento.estado" name="estado">
+      <option>Activo</option>
+      <option>Inactivo</option>
+      <option>Pendiente</option>
+      <option>Archivado</option>
+    </select>
+
+    <button type="submit">Guardar</button>
+  </form>
+</div>

@@ -1,0 +1,23 @@
+<div class="tabla-container">
+  <h2>Listado de Asientos</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Sección</th>
+        <th>Fila</th>
+        <th>Número</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let asiento of asientos">
+        <td>{{ asiento.id }}</td>
+        <td>{{ asiento.seccion }}</td>
+        <td>{{ asiento.fila }}</td>
+        <td>{{ asiento.numero }}</td>
+        <td>{{ asiento.estado }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
