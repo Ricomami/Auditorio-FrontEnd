@@ -1,7 +1,7 @@
 LISTAR SECCIONES SIN COLUMNAS CORRESPONDIENTES A LA BD
 <div class="container">
-  <h1 class="mt-5">Pagina de secciones</h1>
-  <a [routerLink]="['/seccion/crear']" href="#">Crear una nueva seccion</a>
+  <h1 class="mt-5">Pagina de eventos y artistas</h1>
+  <a [routerLink]="['/eventos_artista/crear']" href="#">Crear un nuevo registro de Artista en un Evento</a>
     
     <table class="table table-striped">
       <thead>
@@ -25,32 +25,26 @@ LISTAR SECCIONES SIN COLUMNAS CORRESPONDIENTES A LA BD
 
 LISTAR USUARIOS CON COLUMNAS CORRESPONDIENTES A LA BD
 <div class="container">
-  <h1 class="mt-5">Pagina de secciones</h1>
-  <a [routerLink]="['/seccion/crear']" href="#">Crear una nueva seccion</a>
+  <h1 class="mt-5">Pagina de eventos y artistas</h1>
+  <a [routerLink]="['/eventos_artista/crear']" href="#">Crear un nuevo registro de Artista en un Evento</a>
     
     <table class="table table-striped">
       <thead>
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">Nombre Seccion</th>
-          <th scope="col">Precio Base</th>
-          <th scope="col">ID de Auditorio</th>
-          <th scope="col">Imagen</th>
+          <th scope="col">Id del evento</th>
+          <th scope="col">Id del artista</th>
           <th scope="col">Estado</th>
           <th scope="col">Creada</th>
           <th scope="col">Actualizada</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let seccion of secciones ">
-          <th scope="row"> {{ seccion.id }}</th>
-          <td>{{ seccion.nombre }}</td>
-          <td>{{ seccion.precio }}</td>
-          <td>{{ seccion.id_auditorio }}</td>
-          <td>{{ seccion.imagen }}</td>
-          <td>{{ seccion.estado }}</td>
-          <td>{{ seccion.creado }}</td>
-          <td>{{ seccion.actualizado }}</td>
+        <tr *ngFor="let eventos_artista of eventos_artistas ">
+          <th scope="row"> {{ eventos_artista.id_evento }}</th>
+          <td>{{ eventos_artista.id_artista }}</td>
+          <td>{{ eventos_artista.estado }}</td>
+          <td>{{ eventos_artista.creado }}</td>
+          <td>{{ eventos_artista.actualizado }}</td>
         </tr>
       </tbody>
     </table>

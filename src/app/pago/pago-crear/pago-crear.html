@@ -1,7 +1,7 @@
 <!-- CUESTIONARIO SIN COLUMNAS CORRESPONDIENTES A LA BD -->
 <div class="container">
-    <h1 class="mt-5">Crear seccion nueva</h1>
-    <a [routerLink]="['/seccion']" href="#">Regresar</a>
+    <h1 class="mt-5">Crear pago nuevo</h1>
+    <a [routerLink]="['/pago']" href="#">Regresar</a>
 
     <form>
         <div class="mb-3">
@@ -22,31 +22,26 @@
 </div>
 <!-- CUESTIONARIO CON COLUMNAS CORRESPONDIENTES A LA BD -->
 <div class="container">
-    <h1 class="mt-5">Crear seccion nueva</h1>
-    <a [routerLink]="['/seccion']" href="#">Regresar</a>
+    <h1 class="mt-5">Crear pago nuevo</h1>
+    <a [routerLink]="['/pago']" href="#">Regresar</a>
 
     <form class="mt-5">
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Nombre de la Seccion</label>
+            <label for="exampleInputEmail1" class="form-label">ID del cliente que realiza el pago</label>
             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>
         <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Precio base</label>
+            <label for="exampleInputPassword1" class="form-label">Metodo de pago</label>
             <input type="text" class="form-control" id="exampleInputPassword1">
         </div>
         <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Id del auditorio con esta seccion</label>
-            <input type="text" class="form-control" id="exampleInputPassword1">
-        </div>
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Imagen</label>
+            <label for="exampleInputPassword1" class="form-label">Monto del pago</label>
             <input type="text" class="form-control" id="exampleInputPassword1">
         </div>
         <select class="form-select mb-3" aria-label="Default select example">
-            <option selected>Estado</option>
+            <option selected>Estado del pago</option>
             <option value="1">Activo</option>
             <option value="2">Inactivo</option>
-            <option value="3">Mantenimiento</option>
         </select>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
