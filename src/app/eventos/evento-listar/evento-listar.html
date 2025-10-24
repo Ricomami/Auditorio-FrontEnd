@@ -1,21 +1,21 @@
-<p>evento-listar works!</p><div class="contenedor-lista">
+<p>evento-listar works!</p><div class="container">
   <h2>Lista de Eventos</h2>
 
-  <table>
+  <table class="table table-striped text-center">
     <thead>
       <tr>
-        <th>Nombre</th>
-        <th>Descripción</th>
-        <th>Fecha</th>
-        <th>Hora Fin</th>
-        <th>Aforo</th>
-        <th>Auditorio ID</th>
-        <th>Estado</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Hora Fin</th>
+        <th scope="col">Aforo</th>
+        <th scope="col">Auditorio ID</th>
+        <th scope="col">Estado</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let evento of eventos">
-        <td>{{ evento.nombre_evento }}</td>
+        <td scope="row">{{ evento.nombre_evento }}</td>
         <td>{{ evento.descripcion }}</td>
         <td>{{ evento.fecha | date: 'short' }}</td>
         <td>{{ evento.hora_fin | date: 'short' }}</td>
