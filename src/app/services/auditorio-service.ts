@@ -15,4 +15,9 @@ export class AuditorioService {
   {
     return this.http.get<Auditorio[]>(this.apiURL);
   }
+
+  guardarAuditorio(): Observable<Auditorio> 
+  {
+    return this.http.post<Auditorio>(this.apiURL, Auditorio: auditorio);
+  }
 }

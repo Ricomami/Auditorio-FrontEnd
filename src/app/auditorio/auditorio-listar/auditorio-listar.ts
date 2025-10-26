@@ -26,7 +26,7 @@ export class AuditorioListar {
       }
       (registros: Auditorio[])=>{
         console.log("Registros devueltos dede SQL: ", registros);
-        this.auditorios = registros.datos;
+        this.auditorios = registros;
       }
     )
    }
