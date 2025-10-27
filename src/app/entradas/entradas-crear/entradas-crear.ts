@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-entrada-crear',
   standalone: true,
-  imports: [FormsModule],
+  imports: [RouterLink, FormsModule],
   templateUrl: './entradas-crear.html',
   styleUrl: './entradas-crear.css'
 })

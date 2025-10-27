@@ -1,36 +1,43 @@
-<div class="contenedor">
-  <h2>Registrar Evento</h2>
+<div class="container">
+  <h1 class="mt-3">Registrar Evento</h1>
+  <a [routerLink]="['/evento']" href="#">Regresar</a>
 
-  <form (ngSubmit)="guardar()">
-    <label>Nombre del Evento:</label>
-    <input type="text" [(ngModel)]="evento.nombre_evento" name="nombre_evento" required>
 
-    <label>Descripción:</label>
-    <textarea [(ngModel)]="evento.descripcion" name="descripcion"></textarea>
-
-    <label>Imagen (URL):</label>
-    <input type="text" [(ngModel)]="evento.imagen_evento" name="imagen_evento">
-
-    <label>Fecha:</label>
-    <input type="datetime-local" [(ngModel)]="evento.fecha" name="fecha" required>
-
-    <label>Hora de Finalización:</label>
-    <input type="datetime-local" [(ngModel)]="evento.hora_fin" name="hora_fin" required>
-
-    <label>Aforo:</label>
-    <input type="number" [(ngModel)]="evento.aforo" name="aforo" required>
-
-    <label>ID del Auditorio:</label>
-    <input type="number" [(ngModel)]="evento.auditorio_id" name="auditorio_id" required>
-
-    <label>Estado:</label>
-    <select [(ngModel)]="evento.estado" name="estado">
-      <option>Activo</option>
-      <option>Inactivo</option>
-      <option>Pendiente</option>
-      <option>Archivado</option>
+  <form (ngSubmit)="guardar()" class="mt-5`">
+    <div class="mb-3">
+      <label for="nombre_evento" class="form-label">Nombre del Evento</label>
+      <input type="text" class="form-control" id="nombre_evento" name="nombre_evento" required>
+    </div>
+    <div class="mb-3">
+      <label for="descripcion" class="form-label">Descripcion del Evento</label>
+      <input type="text" class="form-control" id="descripcion" name="descripcion" required>
+    </div>
+    <div class="mb-3">
+      <label for="imagen" class="form-label">Imagen Evento</label>
+      <input type="text" class="form-control" id="imagen" name="imagen">
+    </div>
+    <div class="mb-3">
+      <label for="fecha" class="form-label">Fecha del evento</label>
+      <input type="text" class="form-control" id="fecha" name="fecha" required>
+    </div>
+    <div class="mb-3">
+      <label for="hora_fin" class="form-label">Hora de fin del evento</label>
+      <input type="text" class="form-control" id="hora_fin" name="hora_fin" required>
+    </div>
+    <div class="mb-3">
+      <label for="aforo" class="form-label">Aforo</label>
+      <input type="number" class="form-control" id="aforo" name="aforo" required>
+    </div>
+    <div class="mb-3">
+      <label for="auditorio_id" class="form-label">ID auditorio</label>
+      <input type="number" class="form-control" id="auditorio_id" name="auditorio_id" required>
+    </div>
+    <select class="form-select mb-3" aria-label="Default select example">
+      <option selected>Estado</option>
+      <option value="1">Activo</option>
+      <option value="2">Inactivo</option>
+      <option value="3">Mantenimiento</option>
     </select>
-
-    <button type="submit">Guardar</button>
+    <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </div>

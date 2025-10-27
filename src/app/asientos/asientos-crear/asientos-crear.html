@@ -1,23 +1,27 @@
-<div class="form-container">
-  <h2>Registrar Asiento</h2>
-  <form (ngSubmit)="guardar()">
-    <label>Sección ID:</label>
-    <input type="number" [(ngModel)]="asiento.seccion_id" name="seccion_id" required>
+<div class="container">
+  <h1 class="mt-3">Registrar Asiento</h1>
+  <a [routerLink]="['/asiento']" href="#">Regresar</a>
 
-    <label>Fila:</label>
-    <input type="text" [(ngModel)]="asiento.fila" name="fila" maxlength="1" required>
-
-    <label>Número de Asiento:</label>
-    <input type="number" [(ngModel)]="asiento.numero_asiento" name="numero_asiento" required>
-
-    <label>Estado:</label>
-    <select [(ngModel)]="asiento.estado" name="estado">
-      <option>Activo</option>
-      <option>Inactivo</option>
-      <option>Pendiente</option>
+  <form class="mt-5">
+    <div class="mb-3">
+      <label for="id" class="form-label">Sección ID</label>
+      <input type="text" class="form-control" id="id" name="id" aria-describedby="Seccion ID" required>
+    </div>
+    <div class="mb-3">
+      <label for="fila" class="form-label">Fila:</label>
+      <input type="text" class="form-control" id="fila" name="fila" required>
+    </div>
+    <div class="mb-3">
+      <label for="numero_asiento" class="form-label">Número de Asiento</label>
+      <input type="text" class="form-control" id="numero_asiento" name="numero_asiento" required>
+    </div>
+    <select class="form-select mb-3" aria-label="Default select example" id="estado" name="estado">
+      <option selected>Estado</option>
+      <option value=""></option>
+      <option value="1">Activo</option>
+      <option value="2">Inactivo</option>
+      <option value="3">Mantenimiento</option>
     </select>
-
-    <button type="submit">Guardar</button>
+    <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </div>
-
