@@ -1,1 +1,30 @@
-<p>Creación del formulario para crear auditorios</p>
+<div class="container">
+    <h1 class="mt-3">Crear auditorio nuevo</h1>
+    <a [routerLink]="['/auditorio']" href="#">Regresar</a>
+
+    <form class="mt-5">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Nombre del Auditorio</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Capacidad del auditorio</label>
+            <input type="text" class="form-control" id="exampleInputPassword1">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Direccion del auditorio</label>
+            <input type="text" class="form-control" id="exampleInputPassword1">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Imagen</label>
+            <input type="text" class="form-control" id="exampleInputPassword1">
+        </div>
+        <select class="form-select mb-3" aria-label="Default select example">
+            <option selected>Estado</option>
+            <option value="1">Activo</option>
+            <option value="2">Inactivo</option>
+            <option value="3">Mantenimiento</option>
+        </select>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

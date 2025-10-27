@@ -1,0 +1,27 @@
+<div class="container">
+  <h1 class="mt-3">Pagina de funciones</h1>
+  <a [routerLink]="['/funcion/crear']" href="#">Crear una nueva funcion</a>
+    
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">ID del evento</th>
+          <th scope="col">Fecha y hora de la funcion</th>
+          <th scope="col">Estado</th>
+          <th scope="col">Creada</th>
+          <th scope="col">Actualizada</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let funcion of funciones ">
+          <th scope="row"> {{ funcion.id }}</th>
+          <td>{{ funcion.evento_id }}</td>
+          <td>{{ funcion.fecha_hora_funcion }}</td>
+          <td>{{ funcion.estado }}</td>
+          <td>{{ funcion.creado }}</td>
+          <td>{{ funcion.actualizado }}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>

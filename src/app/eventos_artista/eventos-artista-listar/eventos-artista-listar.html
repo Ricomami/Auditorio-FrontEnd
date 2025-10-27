@@ -1,0 +1,25 @@
+<div class="container">
+  <h1 class="mt-3">Pagina de eventos y artistas</h1>
+  <a [routerLink]="['/eventos_artista/crear']" href="#">Crear un nuevo registro de Artista en un Evento</a>
+    
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col" class="text-center">Id del evento</th>
+          <th scope="col" class="text-center">Id del artista</th>
+          <th scope="col" class="text-center">Estado</th>
+          <th scope="col" class="text-center">Creada</th>
+          <th scope="col" class="text-center">Actualizada</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let eventos_artista of eventos_artistas">
+          <th scope="row"> {{ eventos_artista.id_evento }}</th>
+          <td>{{ eventos_artista.id_artista }}</td>
+          <td>{{ eventos_artista.estado }}</td>
+          <td>{{ eventos_artista.creado }}</td>
+          <td>{{ eventos_artista.actualizado }}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>

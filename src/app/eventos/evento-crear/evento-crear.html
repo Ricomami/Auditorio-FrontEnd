@@ -1,0 +1,43 @@
+<div class="container">
+  <h1 class="mt-3">Registrar Evento</h1>
+  <a [routerLink]="['/evento']" href="#">Regresar</a>
+
+
+  <form (ngSubmit)="guardar()" class="mt-5`">
+    <div class="mb-3">
+      <label for="nombre_evento" class="form-label">Nombre del Evento</label>
+      <input type="text" class="form-control" id="nombre_evento" name="nombre_evento" required>
+    </div>
+    <div class="mb-3">
+      <label for="descripcion" class="form-label">Descripcion del Evento</label>
+      <input type="text" class="form-control" id="descripcion" name="descripcion" required>
+    </div>
+    <div class="mb-3">
+      <label for="imagen" class="form-label">Imagen Evento</label>
+      <input type="text" class="form-control" id="imagen" name="imagen">
+    </div>
+    <div class="mb-3">
+      <label for="fecha" class="form-label">Fecha del evento</label>
+      <input type="text" class="form-control" id="fecha" name="fecha" required>
+    </div>
+    <div class="mb-3">
+      <label for="hora_fin" class="form-label">Hora de fin del evento</label>
+      <input type="text" class="form-control" id="hora_fin" name="hora_fin" required>
+    </div>
+    <div class="mb-3">
+      <label for="aforo" class="form-label">Aforo</label>
+      <input type="number" class="form-control" id="aforo" name="aforo" required>
+    </div>
+    <div class="mb-3">
+      <label for="auditorio_id" class="form-label">ID auditorio</label>
+      <input type="number" class="form-control" id="auditorio_id" name="auditorio_id" required>
+    </div>
+    <select class="form-select mb-3" aria-label="Default select example">
+      <option selected>Estado</option>
+      <option value="1">Activo</option>
+      <option value="2">Inactivo</option>
+      <option value="3">Mantenimiento</option>
+    </select>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
