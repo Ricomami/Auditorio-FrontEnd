@@ -1,1 +1,25 @@
-<p>artista-listar works!</p>
+<div class="container">
+
+  <h1 class="mt-3">Listado de Artistas</h1>
+  <a [routerLink]="['/artista/crear']" href="#">Crear un nuevo auditorio</a>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Género</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let artista of artistas">
+        <td>{{ artista.id }}</td>
+        <td>{{ artista.nombre }}</td>
+        <td>{{ artista.genero }}</td>
+        <td>{{ artista.descripcion }}</td>
+        <td>{{ artista.estado }}</td>
+      </tr>
+    </tbody>
+  </table>

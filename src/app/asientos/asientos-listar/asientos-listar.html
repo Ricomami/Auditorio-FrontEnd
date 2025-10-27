@@ -1,0 +1,25 @@
+<div class="container">
+  <h1 class="mt-3">Listado de Asientos</h1>
+  <a [routerLink]="['/asiento/crear']" href="#">Dar de alta un nuevo asiento</a>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">ID asiento</th>
+        <th scope="col">Sección</th>
+        <th scope="col">Fila</th>
+        <th scope="col">Número</th>
+        <th scope="col">Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let asiento of asientos">
+        <th class="row">{{ asiento.id }}</th>
+        <td>{{ asiento.seccion }}</td>
+        <td>{{ asiento.fila }}</td>
+        <td>{{ asiento.numero }}</td>
+        <td>{{ asiento.estado }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

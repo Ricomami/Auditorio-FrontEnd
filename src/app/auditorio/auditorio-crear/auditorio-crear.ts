@@ -21,20 +21,26 @@ export class AuditorioCrear {
     estado: ''
   }
 
-  constructor (private auditorioServicio: AuditorioService, 
-                private route: Router
-  ){}
+  constructor(private auditorioServicio: AuditorioService,
+    private route: Router
+  ) { }
 
-  CrearAuditorio(){
-    console.log('Funcion Crear Cliente');
-    this.auditorioServicio.guardarAuditorio(this.auditorio).subscribe({
-      next(value) {
-        console.log('guardar auditorio '+value);
-      },
-      error(err) {
-        console.log('error al guardar el auditorio: '+err);
-      },
-    });
-    this.route.navigate(['/auditorio']);
-  }
+  // CrearAuditorio() {
+  //   console.log('Funcion Crear Cliente');
+  //   this.auditorioServicio.guardarAuditorio(this.auditorio).subscribe({
+  //     next(value) {
+  //       console.log('guardar auditorio ' + value);
+  //     },
+  //     error(err) {
+  //       console.log('error al guardar el auditorio: ' + err);
+  //     },
+  //   });
+  //   this.route.navigate(['/auditorio']);
+
+
+  //   guardar() {
+  //     console.log('Auditorio creado:', this.auditorio);
+  //     alert('✅ Auditorio registrado correctamente');
+  //   }
+  // }
 }

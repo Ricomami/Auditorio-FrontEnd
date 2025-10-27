@@ -1,45 +1,19 @@
-LISTAR SECCIONES SIN COLUMNAS CORRESPONDIENTES A LA BD
 <div class="container">
-  <h1 class="mt-5">Pagina de eventos y artistas</h1>
+  <h1 class="mt-3">Pagina de eventos y artistas</h1>
   <a [routerLink]="['/eventos_artista/crear']" href="#">Crear un nuevo registro de Artista en un Evento</a>
     
     <table class="table table-striped">
       <thead>
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">First</th>
-          <th scope="col">Last</th>
-          <th scope="col">Handle</th>
+          <th scope="col" class="text-center">Id del evento</th>
+          <th scope="col" class="text-center">Id del artista</th>
+          <th scope="col" class="text-center">Estado</th>
+          <th scope="col" class="text-center">Creada</th>
+          <th scope="col" class="text-center">Actualizada</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row"></th>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
-</div>
-
-LISTAR USUARIOS CON COLUMNAS CORRESPONDIENTES A LA BD
-<div class="container">
-  <h1 class="mt-5">Pagina de eventos y artistas</h1>
-  <a [routerLink]="['/eventos_artista/crear']" href="#">Crear un nuevo registro de Artista en un Evento</a>
-    
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th scope="col">Id del evento</th>
-          <th scope="col">Id del artista</th>
-          <th scope="col">Estado</th>
-          <th scope="col">Creada</th>
-          <th scope="col">Actualizada</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let eventos_artista of eventos_artistas ">
+        <tr *ngFor="let eventos_artista of eventos_artistas">
           <th scope="row"> {{ eventos_artista.id_evento }}</th>
           <td>{{ eventos_artista.id_artista }}</td>
           <td>{{ eventos_artista.estado }}</td>
