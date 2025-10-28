@@ -13,18 +13,22 @@
         <th  scope="col">Teléfono</th>
         <th  scope="col">Imagen</th>
         <th  scope="col">Estado</th>
+        <th  scope="col">Creado</th>
+        <th  scope="col">Actualizado</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let cliente of clientes">
-        <th scope="row">{{ cliente.id }}</th>
+        <th scope="row">{{ cliente.id_cliente }}</th>
         <td>{{ cliente.nombre }}</td>
         <td>{{ cliente.apellido_pat }}</td>
         <td>{{ cliente.apellido_mat }}</td>
         <td>{{ cliente.correo }}</td>
         <td>{{ cliente.telefono }}</td>
-        <td>{{ cliente.imagen }}</td>
+        <td>{{ cliente.imagen_cliente }}</td>
         <td>{{ cliente.estado }}</td>
+        <td>{{ cliente.created_at }}</td>
+        <td>{{ cliente.updated_at }}</td>
       </tr>
     </tbody>
   </table>

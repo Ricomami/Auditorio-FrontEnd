@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { Cliente } from '../../interfaces/cliente';
+import { ClienteService } from '../../services/cliente-service';
 
 @Component({
   selector: 'app-cliente-listar',
@@ -10,7 +12,23 @@ import { RouterLink } from '@angular/router';
   styleUrl: './clientes-listar.css'
 })
 export class ClientesListar {
-  clientes = [
-    { id: 1, nombre: 'Juan', apellido_pat: 'Perez', apellido_mat: 'Rodriguez', correo: 'juan@gmail.com', telefono: '5551234567', imagen: '', estado: 'Activo' }
-  ];
+   clientes: Cliente[] = [];
+  
+    constructor(private clienteServicio: ClienteService) { }
+  
+    ngOnInit(): void {
+      this.cargarClientes();
+    }
+  
+    cargarClientes() {
+      this.clienteServicio.obtenerClientes().subscribe({
+        next: (registros: any) => {
+          console.log("Registros devueltos desde API: ", registros);
+          this.clientes = registros.datos;
+        },
+        error: (err) => {
+          console.error("Error al obtener los clientes: ", err);
+        }
+      });
+    }
 }
