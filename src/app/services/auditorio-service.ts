@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Auditorio } from '../interfaces/auditorio';
@@ -12,38 +11,23 @@ export class AuditorioService {
 
   constructor( private http: HttpClient ) {}
 
-  obtenerAuditorios(): Observable<Auditorio[]>
-  {
+  obtenerAuditorios(): Observable<Auditorio[]> {
     return this.http.get<Auditorio[]>(this.apiURL);
   }
 
-  guardarAuditorio(): Observable<Auditorio> 
-  {
-    return this.http.post<Auditorio>(this.apiURL, Auditorio: auditorio);
+  obtenerAuditorioPorId(id:number): Observable<Auditorio> {
+    return this.http.get<Auditorio>(`${this.apiURL}/${id}`);
+  }
+
+  crearAuditorio(auditorio: Auditorio): Observable<Auditorio> {
+    return this.http.post<Auditorio>(this.apiURL, auditorio);
+  }
+
+  actualizarAuditorio(id: number, auditorio: Auditorio): Observable<Auditorio> {
+    return this.http.put<Auditorio>(`${this.apiURL}/${id}`, auditorio);
+  }
+
+  eliminarAuditorio(id: number): Observable<any> {
+    return this.http.delete(`${this.apiURL}/${id}`);
   }
 }
-=======
-// import { HttpClient } from '@angular/common/http';
-// import { Injectable } from '@angular/core';
-// import { Auditorio } from '../interfaces/auditorio';
-// import { Observable } from 'rxjs';
-
-// @Injectable({
-//   providedIn: 'root'
-// })
-// export class AuditorioService {
-//   private apiURL = "http://localhost:3000/auditorios/";
-
-//   constructor( private http: HttpClient ) {}
-
-//   obtenerAuditorios(): Observable<Auditorio[]>
-//   {
-//     return this.http.get<Auditorio[]>(this.apiURL);
-//   }
-
-//   guardarAuditorio(): Observable<Auditorio> 
-//   {
-//     return this.http.post<Auditorio>(this.apiURL, Auditorio: auditorio);
-//   }
-// }
->>>>>>> c8b528dea1a058da4ddb5da5027166b6747759bb

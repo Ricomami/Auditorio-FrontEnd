@@ -13,23 +13,23 @@ import { AuditorioService } from '../../services/auditorio-service';
 export class AuditorioListar {
   auditorios: Auditorio[] = [];
 
-  constructor(private auditorioServicio: AuditorioService) {}
+  constructor(private auditorioServicio: AuditorioService) { }
 
-  ngOnInit(): void{
+  ngOnInit(): void {
     this.cargarAuditorios();
-  }  
+  }
 
-  cargarAuditorios(){
-    this.auditorioServicio.obtenerAuditorios().subscribe(
-      next: (respuesta: any) => {
-        
+  cargarAuditorios() {
+    this.auditorioServicio.obtenerAuditorios().subscribe({
+      next: (registros: any) => {
+        console.log("Registros devueltos desde API: ", registros);
+        this.auditorios = registros.datos;
+      },
+      error: (err) => {
+        console.error("Error al obtener los auditorios: ", err);
       }
-      (registros: Auditorio[])=>{
-        console.log("Registros devueltos dede SQL: ", registros);
-        this.auditorios = registros;
-      }
-    )
-   }
+    });
+  }
 
   auditorioss = [
     { id: 1000, nombre: "Auditorio Central", capacidad: "2000", direccion: "Av. Principal 123, Ciudad", imagen: "https://example.com/auditorios/central.jpg", estado: "activo", creado: "2025-08-15T09:00:00Z", actualizado: "2025-10-15T12:00:00Z" },

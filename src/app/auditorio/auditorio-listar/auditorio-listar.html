@@ -16,15 +16,15 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let auditorio of auditorioss">
-        <th scope="row"> {{ auditorio.id }}</th>
+      <tr *ngFor="let auditorio of auditorios">
+        <th scope="row"> {{ auditorio.id_auditorio }}</th>
         <td>{{ auditorio.nombre }}</td>
         <td>{{ auditorio.capacidad}}</td>
         <td>{{ auditorio.direccion }}</td>
         <td>{{ auditorio.imagen }}</td>
         <td>{{ auditorio.estado }}</td>
-        <td>{{ auditorio.creado }}</td>
-        <td>{{ auditorio.actualizado }}</td>
+        <td>{{ auditorio.updated_at | date: 'short' }}</td>
+        <td>{{ auditorio.updated_at | date: 'short' }}</td>
       </tr>
     </tbody>
   </table>

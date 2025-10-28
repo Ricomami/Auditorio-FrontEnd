@@ -3,6 +3,8 @@ export interface Auditorio {
     nombre: string;
     capacidad: number;
     direccion: string;
-    imagen: string;
+    imagen: string | null;
     estado: string;
+    created_at: string;
+    updated_at: string;
 }
