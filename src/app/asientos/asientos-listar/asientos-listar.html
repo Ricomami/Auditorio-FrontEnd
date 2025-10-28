@@ -10,15 +10,19 @@
         <th scope="col">Fila</th>
         <th scope="col">Número</th>
         <th scope="col">Estado</th>
+        <th scope="col">Creado</th>
+        <th scope="col">Actualizado</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let asiento of asientos">
-        <th class="row">{{ asiento.id }}</th>
-        <td>{{ asiento.seccion }}</td>
+        <th class="row">{{ asiento.id_asiento }}</th>
+        <td>{{ asiento.seccion_id }}</td>
         <td>{{ asiento.fila }}</td>
-        <td>{{ asiento.numero }}</td>
+        <td>{{ asiento.numero_asiento }}</td>
         <td>{{ asiento.estado }}</td>
+        <td>{{ asiento.created_at | date: 'short' }}</td>
+        <td>{{ asiento.updated_at | date: 'short' }}</td>
       </tr>
     </tbody>
   </table>
