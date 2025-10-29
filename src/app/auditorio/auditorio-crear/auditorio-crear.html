@@ -2,24 +2,24 @@
     <h1 class="mt-3">Crear auditorio nuevo</h1>
     <a [routerLink]="['/auditorio']" href="#">Regresar</a>
 
-    <form class="mt-5">
+    <form (ngSubmit)="CrearAuditorio()" class="mt-5">
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Nombre del Auditorio</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <label for="nombre" class="form-label">Nombre del Auditorio</label>
+            <input [(ngModel)]="auditorio.nombre" type="text" class="form-control" id="nombre" name="nombre" required>
         </div>
         <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Capacidad del auditorio</label>
-            <input type="text" class="form-control" id="exampleInputPassword1">
+            <label for="capacidad" class="form-label">Capacidad del auditorio</label>
+            <input [(ngModel)]="auditorio.capacidad" type="text" class="form-control" id="capacidad" name="capacidad" required>
         </div>
         <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Direccion del auditorio</label>
-            <input type="text" class="form-control" id="exampleInputPassword1">
+            <label for="direccion" class="form-label">Direccion del auditorio</label>
+            <input [(ngModel)]="auditorio.direccion" type="text" class="form-control" id="direccion" name="direccion">
         </div>
         <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Imagen</label>
-            <input type="text" class="form-control" id="exampleInputPassword1">
+            <label for="imagen" class="form-label">Imagen</label>
+            <input [(ngModel)]="auditorio.imagen" type="text" class="form-control" id="imagen" name="imagen">
         </div>
-        <select class="form-select mb-3" aria-label="Default select example">
+        <select [(ngModel)]="auditorio.estado" class="form-select mb-3" aria-label="Default select example">
             <option selected>Estado</option>
             <option value="1">Activo</option>
             <option value="2">Inactivo</option>

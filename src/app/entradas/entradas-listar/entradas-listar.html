@@ -5,24 +5,28 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th scope="col">ID</th>
+        <th scope="col">ID de entrada</th>
         <th scope="col">ID de asiento</th>
         <th scope="col">ID de pago</th>
         <th scope="col">ID funcion</th>
         <th scope="col">ID cliente</th>
         <th scope="col">Precio Final</th>
         <th scope="col">Estado</th>
+        <th scope="col">Creado</th>
+        <th scope="col">Actualizado</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let entrada of entradas">
-        <td>{{ entrada.id }}</td>
+        <td>{{ entrada.id_entrada }}</td>
         <td>{{ entrada.asiento_id }}</td>
         <td>{{ entrada.pago_id }}</td>
         <td>{{ entrada.funcion_id }}</td>
         <td>{{ entrada.cliente_id }}</td>
         <td>${{ entrada.precio_final }}</td>
         <td>{{ entrada.estado }}</td>
+        <td>{{ entrada.created_at | date: 'short' }}</td>
+        <td>{{ entrada.updated_at | date: 'short' }}</td>
       </tr>
     </tbody>
   </table>

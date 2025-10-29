@@ -5,7 +5,7 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th scope="col">#</th>
+          <th scope="col">ID Funcion</th>
           <th scope="col">ID del evento</th>
           <th scope="col">Fecha y hora de la funcion</th>
           <th scope="col">Estado</th>
@@ -15,12 +15,12 @@
       </thead>
       <tbody>
         <tr *ngFor="let funcion of funciones ">
-          <th scope="row"> {{ funcion.id }}</th>
+          <th scope="row"> {{ funcion.id_funcion }}</th>
           <td>{{ funcion.evento_id }}</td>
-          <td>{{ funcion.fecha_hora_funcion }}</td>
+          <td>{{ funcion.fecha_hora_funcion | date: 'short' }}</td>
           <td>{{ funcion.estado }}</td>
-          <td>{{ funcion.creado }}</td>
-          <td>{{ funcion.actualizado }}</td>
+          <td>{{ funcion.created_at | date: 'short' }}</td>
+          <td>{{ funcion.updated_at | date: 'short' }}</td>
         </tr>
       </tbody>
     </table>

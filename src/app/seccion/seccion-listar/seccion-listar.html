@@ -5,7 +5,7 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th scope="col">#</th>
+          <th scope="col">ID Seccion</th>
           <th scope="col">Nombre Seccion</th>
           <th scope="col">Precio Base</th>
           <th scope="col">ID de Auditorio</th>
@@ -17,14 +17,14 @@
       </thead>
       <tbody>
         <tr *ngFor="let seccion of secciones ">
-          <th scope="row"> {{ seccion.id }}</th>
-          <td>{{ seccion.nombre }}</td>
-          <td>{{ seccion.precio }}</td>
-          <td>{{ seccion.id_auditorio }}</td>
-          <td>{{ seccion.imagen }}</td>
+          <th scope="row"> {{ seccion.id_seccion }}</th>
+          <td>{{ seccion.nombre_seccion }}</td>
+          <td>{{ seccion.precio_base }}</td>
+          <td>{{ seccion.auditorio_id }}</td>
+          <td>{{ seccion.imagen_seccion }}</td>
           <td>{{ seccion.estado }}</td>
-          <td>{{ seccion.creado }}</td>
-          <td>{{ seccion.actualizado }}</td>
+          <td>{{ seccion.created_at }}</td>
+          <td>{{ seccion.updated_at }}</td>
         </tr>
       </tbody>
     </table>

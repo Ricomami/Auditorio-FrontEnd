@@ -14,19 +14,23 @@
         <th scope="col">Aforo</th>
         <th scope="col">ID del auditorio</th>
         <th scope="col">Estado</th>
+        <th scope="col">Creado</th>
+        <th scope="col">Actuaizado</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let evento of eventos">
-        <th scope="row">{{ evento.id }}</th>
+        <th scope="row">{{ evento.id_evento }}</th>
         <td>{{ evento.nombre_evento }}</td>
         <td>{{ evento.descripcion }}</td>
-        <td>{{ evento.imagen }}</td>
+        <td>{{ evento.imagen_evento }}</td>
         <td>{{ evento.fecha | date: 'short' }}</td>
         <td>{{ evento.hora_fin | date: 'short' }}</td>
         <td>{{ evento.aforo }}</td>
         <td>{{ evento.auditorio_id }}</td>
         <td>{{ evento.estado }}</td>
+        <td>{{ evento.created_at }}</td>
+        <td>{{ evento.updated_at }}</td>
       </tr>
     </tbody>
   </table>

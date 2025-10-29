@@ -13,12 +13,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let eventos_artista of eventos_artistas">
-          <th scope="row"> {{ eventos_artista.id_evento }}</th>
-          <td>{{ eventos_artista.id_artista }}</td>
-          <td>{{ eventos_artista.estado }}</td>
-          <td>{{ eventos_artista.creado }}</td>
-          <td>{{ eventos_artista.actualizado }}</td>
+        <tr *ngFor="let eventosartista of eventosartistas">
+          <th scope="row"> {{ eventosartista.evento_id }}</th>
+          <td>{{ eventosartista.artista_id }}</td>
+          <td>{{ eventosartista.estado }}</td>
+          <td>{{ eventosartista.created_at | date: 'short' }}</td>
+          <td>{{ eventosartista.updated_at | date: 'short' }}</td>
         </tr>
       </tbody>
     </table>

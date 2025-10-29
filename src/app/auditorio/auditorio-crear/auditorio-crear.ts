@@ -1,18 +1,39 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { Auditorio } from '../../interfaces/auditorio';
+import { AuditorioService } from '../../services/auditorio-service';
 
 @Component({
   selector: 'app-auditorio-crear',
-  imports: [RouterLink, CommonModule],
+  imports: [RouterLink, CommonModule, FormsModule],
   templateUrl: './auditorio-crear.html',
   styleUrl: './auditorio-crear.css'
 })
 export class AuditorioCrear {
-  auditorio = { nombre: '', capacidad: '', direccion: '', imagen: '', estado: 'Activo' };
+  auditorio: Auditorio = { id_auditorio: 1, nombre: '', capacidad: 1, direccion: '', imagen: null, estado: '', created_at: '', updated_at: '' }
+  constructor(private auditorioServicio: AuditorioService,
+    private route: Router
+  ) { }
 
-  guardar() {
-    console.log('Auditorio creado:', this.auditorio);
-    alert('✅ Auditorio registrado correctamente');
+  CrearAuditorio() {
+    console.log('Funcion Crear Auditorio');
+    this.auditorioServicio.crearAuditorio(this.auditorio).subscribe({
+      next(value) {
+        console.log('guardar auditorio ' + value);
+      },
+      error(err) {
+        console.log('error al guardar el auditorio: ' + err);
+      },
+    });
+    //   this.route.navigate(['/auditorio']);
+
+
+    //   guardar() {
+    //     console.log('Auditorio creado:', this.auditorio);
+    //     alert('✅ Auditorio registrado correctamente');
+    //   }
+    // }
   }
 }

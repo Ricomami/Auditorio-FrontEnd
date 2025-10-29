@@ -9,5 +9,6 @@ import { RouterLink } from '@angular/router';
   styleUrl: './funcion-crear.css'
 })
 export class FuncionCrear {
+  
 
 }

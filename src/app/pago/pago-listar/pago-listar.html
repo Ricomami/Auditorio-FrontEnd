@@ -5,7 +5,7 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th scope="col">#</th>
+          <th scope="col">ID del pago</th>
           <th scope="col">ID Cliente</th>
           <th scope="col">Metodo de Pago</th>
           <th scope="col">Monto</th>
@@ -17,14 +17,14 @@
       </thead>
       <tbody>
         <tr *ngFor="let pago of pagos ">
-          <th scope="row"> {{ pago.id }}</th>
-          <td>{{ pago.cliente }}</td>
-          <td>{{ pago.metodo }}</td>
+          <th scope="row"> {{ pago.id_pago }}</th>
+          <td>{{ pago.cliente_id }}</td>
+          <td>{{ pago.metodo_pago }}</td>
           <td>{{ pago.monto }}</td>
-          <td>{{ pago.fecha_pago }}</td>
+          <td>{{ pago.fecha_pago | date: 'short' }}</td>
           <td>{{ pago.estado }}</td>
-          <td>{{ pago.creado }}</td>
-          <td>{{ pago.actualizado }}</td>
+          <td>{{ pago.created_at | date: 'short' }}</td>
+          <td>{{ pago.updated_at | date: 'short' }}</td>
         </tr>
       </tbody>
     </table>

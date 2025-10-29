@@ -1,7 +1,7 @@
 <div class="container">
 
   <h1 class="mt-3">Listado de Artistas</h1>
-  <a [routerLink]="['/artista/crear']" href="#">Crear un nuevo auditorio</a>
+  <a [routerLink]="['/artista/crear']" href="#">Crear un nuevo Artista</a>
 
   <table class="table table-striped">
     <thead>
@@ -10,16 +10,22 @@
         <th scope="col">Nombre</th>
         <th scope="col">Género</th>
         <th scope="col">Descripción</th>
+        <th scope="col">Imagen</th>
         <th scope="col">Estado</th>
+        <th scope="col">Creado</th>
+        <th scope="col">Actualizado</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let artista of artistas">
-        <td>{{ artista.id }}</td>
-        <td>{{ artista.nombre }}</td>
+        <td>{{ artista.id_artista }}</td>
+        <td>{{ artista.nombre_artista }}</td>
         <td>{{ artista.genero }}</td>
         <td>{{ artista.descripcion }}</td>
+        <td>{{ artista.imagen_artista }}</td>
         <td>{{ artista.estado }}</td>
+        <td>{{ artista.created_at }}</td>
+        <td>{{ artista.updated_at }}</td>
       </tr>
     </tbody>
   </table>
