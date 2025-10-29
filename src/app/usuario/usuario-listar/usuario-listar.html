@@ -17,14 +17,14 @@
       </thead>
       <tbody>
         <tr *ngFor="let usuario of usuarios ">
-          <th scope="row"> {{ usuario.id }}</th>
-          <td>{{ usuario.nombre }}</td>
-          <td>{{ usuario.contrasena }}</td>
+          <th scope="row"> {{ usuario.id_usuario }}</th>
+          <td>{{ usuario.nombre_usuario }}</td>
+          <td>{{ usuario['contraseña'] }}</td>
           <td>{{ usuario.rol }}</td>
-          <td>{{ usuario.imagen }}</td>
+          <td>{{ usuario.imagen_usuario }}</td>
           <td>{{ usuario.estado }}</td>
-          <td>{{ usuario.creado }}</td>
-          <td>{{ usuario.actualizado }}</td>
+          <td>{{ usuario.created_at }}</td>
+          <td>{{ usuario.updated_at }}</td>
         </tr>
       </tbody>
     </table>
