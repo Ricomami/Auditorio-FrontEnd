@@ -31,9 +31,4 @@ export class AsientosListar {
       }
     });
   }
-
-  asientoss = [
-    { id: 1, seccion: 1, fila: 'A', numero: 5, estado: 'Activo' },
-    { id: 2, seccion: 2, fila: 'B', numero: 10, estado: 'Pendiente' }
-  ];
 }
