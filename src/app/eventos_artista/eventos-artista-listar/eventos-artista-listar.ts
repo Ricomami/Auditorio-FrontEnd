@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { EventosArtista } from '../../interfaces/eventos-artista';
+import { EventosArtistaService } from '../../services/eventos-artista-service';
 
 @Component({
   selector: 'app-eventos-artista-listar',
@@ -9,6 +11,25 @@ import { RouterLink } from '@angular/router';
   styleUrl: './eventos-artista-listar.css'
 })
 export class EventosArtistaListar {
+  eventosartistas: EventosArtista[] = [];
+  
+    constructor(private eventosartistaServicio: EventosArtistaService) { }
+  
+    ngOnInit(): void {
+      this.cargarEventosartista();
+    }
+  
+    cargarEventosartista() {
+      this.eventosartistaServicio.obtenerEventosArtistas().subscribe({
+        next: (registros: any) => {
+          console.log("Registros devueltos desde API: ", registros);
+          this.eventosartistas = registros.datos;
+        },
+        error: (err) => {
+          console.error("Error al obtener los eventosartista: ", err);
+        }
+      });
+    }
   eventos_artistas = [
     { id_evento: "500", id_artista: "300", estado: "activo", creado: "2025-09-20T10:30:00Z", actualizado: "2025-10-15T12:45:00Z" },
     { id_evento: "500", id_artista: "301", estado: "activo", creado: "2025-09-22T14:20:00Z", actualizado: "2025-10-10T09:35:00Z" },
