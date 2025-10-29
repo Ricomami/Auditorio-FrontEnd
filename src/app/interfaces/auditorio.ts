@@ -8,3 +8,8 @@ export interface Auditorio {
     created_at: string;
     updated_at: string;
 }
+
+export interface CrearAuditorioRespuesta { 
+    datos: Auditorio;
+    id_creada: number;
+}

@@ -12,28 +12,39 @@ import { AuditorioService } from '../../services/auditorio-service';
   styleUrl: './auditorio-crear.css'
 })
 export class AuditorioCrear {
-  auditorio: Auditorio = { id_auditorio: 1, nombre: '', capacidad: 1, direccion: '', imagen: null, estado: '', created_at: '', updated_at: '' }
+  auditorio: Auditorio = {
+    id_auditorio: 0,
+    nombre: '',
+    capacidad: 0,
+    direccion: '',
+    imagen: null,
+    estado: '',
+    created_at: '',
+    updated_at: ''
+  };
+
+  mensajeExito: string | null = null;
+  mensajeError: string | null = null;
+
   constructor(private auditorioServicio: AuditorioService,
     private route: Router
-  ) { }
+  ) {}
 
-  CrearAuditorio() {
-    console.log('Funcion Crear Auditorio');
+  CrearAuditorio(): void {
+
+    this.mensajeExito = null;
+    this.mensajeError = null;
+
     this.auditorioServicio.crearAuditorio(this.auditorio).subscribe({
-      next(value) {
-        console.log('guardar auditorio ' + value);
+      next: (respuesta) => {
+        console.log('Auditorio creado correctamente: ', respuesta);
+        alert('Auditorio creado exitosamente.');
+        this.route.navigate(['/auditorio']); //Redirigimos a la vista de 'listar'
       },
-      error(err) {
-        console.log('error al guardar el auditorio: ' + err);
-      },
+      error: (err) => {
+        console.error('Error al crear el auditorio: ', err);
+        this.mensajeError='Ocurrió un error al crear el auditorio.';
+      }
     });
-    //   this.route.navigate(['/auditorio']);
-
-
-    //   guardar() {
-    //     console.log('Auditorio creado:', this.auditorio);
-    //     alert('✅ Auditorio registrado correctamente');
-    //   }
-    // }
   }
 }
