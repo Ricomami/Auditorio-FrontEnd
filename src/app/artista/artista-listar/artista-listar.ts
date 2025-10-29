@@ -30,8 +30,4 @@ export class ArtistaListar {
       }
     });
   }
-  artistass = [
-    { id: 1, nombre: 'Shakira', genero: 'Pop', descripcion: 'Cantante colombiana', estado: 'Activo' },
-    { id: 2, nombre: 'Bad Bunny', genero: 'Urbano', descripcion: 'Cantante puertorriqueño', estado: 'Activo' }
-  ];
 }

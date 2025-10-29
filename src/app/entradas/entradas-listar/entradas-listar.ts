@@ -31,7 +31,4 @@ export class EntradasListar {
         }
       });
     }
-  entradass = [
-    { id: 1, asiento_id: 40, pago_id:1, funcion_id: 12, cliente_id: 1, precio_final: 250.00, estado: 'Activo' }
-  ];
-}
+  }
