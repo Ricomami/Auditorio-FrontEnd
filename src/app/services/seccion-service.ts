@@ -11,7 +11,7 @@ export class SeccionService {
 
   constructor( private http: HttpClient ) {}
 
-  obtenerSeccions(): Observable<Seccion[]> {
+  obtenerSecciones(): Observable<Seccion[]> {
     return this.http.get<Seccion[]>(this.apiURL);
   }
 

@@ -20,7 +20,7 @@ export class SeccionListar {
     }
   
     cargarSeccions() {
-      this.seccionServicio.obtenerSeccions().subscribe({
+      this.seccionServicio.obtenerSecciones().subscribe({
         next: (registros: any) => {
           console.log("Registros devueltos desde API: ", registros);
           this.secciones = registros.datos;
