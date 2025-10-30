@@ -6,14 +6,14 @@
         <!-- NOMBRE_USUARIO -->
         <div class="mb-3">
             <label for="nombre_usuario" class="form-label">Nombre del Usuario</label>
-            <input 
-            type="text" 
-            id="nombre_usuario" 
-            name="nombre_usuario" 
+            <input
+            type="text"
+            id="nombre_usuario"
+            name="nombre_usuario"
             [(ngModel)]="usuario.nombre_usuario"
-            #nombre_usuario="ngModel" 
-            required 
-            minlenght="4" 
+            #nombre_usuario="ngModel"
+            required
+            minlenght="4"
             class="form-control"
             [class.is-invalid]="nombre_usuario.invalid && nombre_usuario.touched"
             [class.is-valid]="nombre_usuario.valid && nombre_usuario.touched" />
@@ -25,10 +25,10 @@
             <!-- CONTRASEÑA -->
     <div class="mb-3">
       <label for="contraseña" class="form-label">Contraseña</label>
-      <small class="text-muted">
+      <small class="text-muted ms-3">
         La contraseña debe incluir: al menos 6 caracteres, una letra mayúscula, una minúscula, un número y un símbolo.
       </small>
-      <input 
+      <input
         type="password"
         id="contraseña"
         name="contraseña"
@@ -138,6 +138,6 @@
     <div *ngIf="mensajeError" class="alert alert-danger mt-4" role="alert">
       ⚠️ {{ mensajeError }}
     </div>
-    
+
   </form>
 </div>
