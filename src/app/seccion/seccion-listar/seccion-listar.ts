@@ -16,10 +16,10 @@ export class SeccionListar {
     constructor(private seccionServicio: SeccionService) { }
   
     ngOnInit(): void {
-      this.cargarSeccions();
+      this.cargarSecciones();
     }
   
-    cargarSeccions() {
+    cargarSecciones() {
       this.seccionServicio.obtenerSecciones().subscribe({
         next: (registros: any) => {
           console.log("Registros devueltos desde API: ", registros);
@@ -29,5 +29,21 @@ export class SeccionListar {
           console.error("Error al obtener los secciones: ", err);
         }
       });
+    }
+
+    eliminarSeccion(id:number): void {
+      if (confirm('¿Estas seguro de marcar esta seccion como inactiva?')) {
+        this.seccionServicio.eliminarSeccion(id).subscribe({
+          next: (respuesta) => {
+            console.log('Respuesta del backend: ', respuesta, ' ID con borrado lógico: ', id);
+            alert('Seccion marcada como inactiva correctamente.');
+            this.cargarSecciones(); //Refrescamos la tabla de nuevo
+          },
+          error: (err) => {
+            console.error('Error al marcar la seccion como inactiva: ', err);
+            alert('Error al desactivar el auditorio.');
+          },
+        });
+      }
     }
 }

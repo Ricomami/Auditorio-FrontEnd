@@ -64,12 +64,11 @@
     <div class="mb-3">
       <label for="imagen" class="form-label">Imagen</label>
       <input
-        type="url"
+        type="text"
         id="imagen"
         name="imagen"
         [(ngModel)]="seccion.imagen_seccion"
         #imagen="ngModel"
-        pattern="https?://.+"
         class="form-control"
         [class.is-invalid]="imagen.invalid && imagen.touched"
         [class.is-valid]="imagen.valid && imagen.touched"

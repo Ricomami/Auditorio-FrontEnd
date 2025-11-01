@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SeccionService {
-  private apiURL = "http://localhost:3000/secciones/";
+  private apiURL = "http://localhost:3000/secciones";
 
   constructor( private http: HttpClient ) {}
 

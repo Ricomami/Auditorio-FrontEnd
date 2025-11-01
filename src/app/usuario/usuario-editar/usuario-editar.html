@@ -8,7 +8,7 @@
 
         <!-- NOMBRE_USUARIO -->
         <div class="mb-3">
-            <label for="nombre_usuario" class="form-label">Nombre del Usuario</label>
+            <label for="nombre_usuario" class="form-label">Actualizar Nombre </label>
             <input
             type="text"
             id="nombre_usuario"
@@ -113,7 +113,6 @@
         [(ngModel)]="usuario.imagen_usuario"
         #imagen_usuario="ngModel"
         class="form-control"
-        placeholder="https://..."
       />
     </div>
 
@@ -143,8 +142,8 @@
     </div>
 
     <!-- BOTÓN -->
-    <button type="submit" class="btn btn-primary w-100" [disabled]="formulario.invalid">
-      Crear Usuario
+    <button type="submit" class="btn btn-success w-100" [disabled]="formulario.invalid">
+      Actualizar Usuario
     </button>
 
      <!-- ALERTA DE ÉXITO -->
