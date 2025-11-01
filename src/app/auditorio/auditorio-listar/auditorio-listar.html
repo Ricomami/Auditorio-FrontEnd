@@ -29,7 +29,7 @@
         <td>{{ auditorio.updated_at | date: 'short' }}</td>
         <td>
           <button 
-          class="btn btn btn-outline-primary btn-sm"
+          class="btn btn-outline-primary btn-sm"
           [routerLink]="['/auditorio/editar',auditorio.id_auditorio]"
           >
           Editar
@@ -38,7 +38,7 @@
 
         <td>
           <button 
-          class="btn btn btn-outline-danger"
+          class="btn btn-outline-danger btn-sm"
           (click)="eliminarAuditorio(auditorio.id_auditorio)"
           >
           Eliminar

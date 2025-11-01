@@ -32,8 +32,18 @@ export class AuditorioListar {
   }
 
   eliminarAuditorio(id:number): void {
-    if (confirm('¿Estás seguro de eliminar este auditorio?')) {
-      // this.auditorio
+    if (confirm('¿Estás seguro de marcar este auditorio como inactivo?')) {
+      this.auditorioServicio.eliminarAuditorio(id).subscribe({
+        next: (respuesta) => {
+          console.log('Respuesta del backend: ', respuesta, 'ID con borrado logico: ', id);
+          alert('Auditorio marcado como inactivo correctamente.');
+          this.cargarAuditorios(); //Refrescamos la tabla despues
+        },
+        error: (err) => {
+          console.error('Error al marcar auditorio como inactivo: ', err);
+          alert('Error al desactivar el auditorio.');
+        },
+      });
     }
   }
 }
