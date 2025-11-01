@@ -19,7 +19,7 @@ export class AuditorioListar {
     this.cargarAuditorios();
   }
 
-  cargarAuditorios() {
+  cargarAuditorios(): void {
     this.auditorioServicio.obtenerAuditorios().subscribe({
       next: (registros: any) => {
         console.log("Registros devueltos desde API: ", registros);
@@ -29,5 +29,11 @@ export class AuditorioListar {
         console.error("Error al obtener los auditorios: ", err);
       }
     });
+  }
+
+  eliminarAuditorio(id:number): void {
+    if (confirm('¿Estás seguro de eliminar este auditorio?')) {
+      // this.auditorio
+    }
   }
 }

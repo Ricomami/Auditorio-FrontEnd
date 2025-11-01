@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuditorioService {
-  private apiURL = "http://localhost:3000/auditorios/";
+  private apiURL = "http://localhost:3000/auditorios";
 
   constructor( private http: HttpClient ) {}
 
@@ -15,7 +15,7 @@ export class AuditorioService {
     return this.http.get<Auditorio[]>(this.apiURL);
   }
 
-  obtenerAuditorioPorId(id:number): Observable<Auditorio> {
+  obtenerAuditorioPorId(id:number){
     return this.http.get<Auditorio>(`${this.apiURL}/${id}`);
   }
 
@@ -24,8 +24,8 @@ export class AuditorioService {
     return this.http.post<CrearAuditorioRespuesta>(this.apiURL, auditorio);
   }
 
-  actualizarAuditorio(id: number, auditorio: Auditorio): Observable<Auditorio> {
-    return this.http.put<Auditorio>(`${this.apiURL}/${id}`, auditorio);
+  actualizarAuditorio(id: number, auditorio: Auditorio) {
+    return this.http.put(`${this.apiURL}/${id}`, auditorio);
   }
 
   eliminarAuditorio(id: number): Observable<any> {

@@ -53,7 +53,6 @@
         name="direccion"
         [(ngModel)]="auditorio.direccion"
         #direccion="ngModel"
-        required
         class="form-control"
         [class.is-invalid]="direccion.invalid && direccion.touched"
         [class.is-valid]="direccion.valid && direccion.touched"
@@ -65,9 +64,9 @@
 
     <!-- IMAGEN -->
     <div class="mb-3">
-      <label for="imagen" class="form-label">URL de Imagen</label>
+      <label for="imagen" class="form-label">URL</label>
       <input
-        type="url"
+        type="text"
         id="imagen"
         name="imagen"
         [(ngModel)]="auditorio.imagen"
@@ -78,7 +77,7 @@
         [class.is-valid]="imagen.valid && imagen.touched"
       />
       <div *ngIf="imagen.invalid && imagen.touched" class="invalid-feedback">
-        Ingrese una URL válida (debe comenzar con http o https).
+        Ingrese una imagen valida.
       </div>
     </div>
 

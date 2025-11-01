@@ -96,10 +96,11 @@
         [class.is-valid]="estado.valid && estado.touched"
       >
         <option value="" disabled selected>Seleccione un estado</option>
-        <option value="1">Activo</option>
-        <option value="2">Inactivo</option>
-        <option value="3">En proceso</option>
-        <option value="3">En revision</option>
+        <option value="Activo">Activo</option>
+        <option value="Inactivo">Inactivo</option>
+        <option value="Pendiente">Pendiente</option>
+        <option value="Suspendido">Suspendido</option>
+        <option value="Archivado">Archivado</option>
       </select>
       <div *ngIf="estado.invalid && estado.touched" class="invalid-feedback">
         Seleccione un estado válido.

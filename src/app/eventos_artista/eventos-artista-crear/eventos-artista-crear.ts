@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-eventos-artista-crear',
-  imports: [RouterLink, CommonModule, FormsModule], 
+  imports: [RouterLink, CommonModule, FormsModule],
   templateUrl: './eventos-artista-crear.html',
   styleUrl: './eventos-artista-crear.css'
 })

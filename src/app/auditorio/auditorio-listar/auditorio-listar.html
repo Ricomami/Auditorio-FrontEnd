@@ -13,6 +13,8 @@
         <th scope="col">Estado</th>
         <th scope="col">Creado</th>
         <th scope="col">Editado</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Eliminar</th>
       </tr>
     </thead>
     <tbody>
@@ -25,6 +27,23 @@
         <td>{{ auditorio.estado }}</td>
         <td>{{ auditorio.updated_at | date: 'short' }}</td>
         <td>{{ auditorio.updated_at | date: 'short' }}</td>
+        <td>
+          <button 
+          class="btn btn btn-outline-primary btn-sm"
+          [routerLink]="['/auditorio/editar',auditorio.id_auditorio]"
+          >
+          Editar
+          </button>
+        </td>
+
+        <td>
+          <button 
+          class="btn btn btn-outline-danger"
+          (click)="eliminarAuditorio(auditorio.id_auditorio)"
+          >
+          Eliminar
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>

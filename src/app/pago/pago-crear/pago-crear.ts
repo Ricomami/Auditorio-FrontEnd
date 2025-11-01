@@ -41,7 +41,7 @@ export class PagoCrear {
 
     this.pagoServicio.crearPago(this.pago).subscribe({
       next: (respuesta) => {
-        console.log('Pago creado correctamente: ', respuesta);
+        console.log('Pago creado correctamente: ', respuesta, 'Datos de pago: ', this.pago);
         alert('Pago creado exitosamente.');
         this.route.navigate(['/pago']); //Redirigimos a la vista de 'listar'
       },
