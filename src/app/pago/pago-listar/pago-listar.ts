@@ -30,4 +30,20 @@ export class PagoListar {
         }
       });
     }
+
+    eliminarPago(id:number): void {
+    if (confirm('¿Estás seguro de marcar este pago como inactivo?')) {
+      this.pagoServicio.eliminarPago(id).subscribe({
+        next: (respuesta) => {
+          console.log('Respuesta del backend: ', respuesta, 'ID con borrado logico: ', id);
+          alert('Pago marcado como inactivo correctamente.');
+          this.cargarPagos(); //Refrescamos la tabla despues
+        },
+        error: (err) => {
+          console.error('Error al marcar el pago como inactivo: ', err);
+          alert('Error al desactivar el pago.');
+        },
+      });
+    }
+  }
 }

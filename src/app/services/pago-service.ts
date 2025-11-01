@@ -7,7 +7,7 @@ import { Pago } from '../interfaces/pago';
   providedIn: 'root'
 })
 export class PagoService {
-  private apiURL = "http://localhost:3000/pagos/";
+  private apiURL = "http://localhost:3000/pagos";
 
   constructor( private http: HttpClient ) {}
 

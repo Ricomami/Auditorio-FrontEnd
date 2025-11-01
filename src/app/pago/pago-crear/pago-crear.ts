@@ -35,15 +35,14 @@ export class PagoCrear {
     if( !this.pago.fecha_pago) {
       this.pago.fecha_pago = null
     }
-
     this.mensajeExito = null;
     this.mensajeError = null;
 
     this.pagoServicio.crearPago(this.pago).subscribe({
       next: (respuesta) => {
         console.log('Pago creado correctamente: ', respuesta, 'Datos de pago: ', this.pago);
-        alert('Pago creado exitosamente.');
-        this.route.navigate(['/pago']); //Redirigimos a la vista de 'listar'
+        this.mensajeExito = 'Pago creado exitosamente.';
+        setTimeout(() =>this.route.navigate(['/pago']),1500); //Redirigimos a la vista de 'listar'
       },
       error: (err) => {
         console.error('Error al crear el pago: ', err);
