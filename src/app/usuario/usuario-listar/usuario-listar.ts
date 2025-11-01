@@ -14,14 +14,14 @@ import { Usuario } from '../../interfaces/usuario';
 export class UsuarioListar {
   usuarios: Usuario[] = [];
   
-    constructor(private auditorioServicio: UsuarioService) { }
+    constructor(private usuarioServicio: UsuarioService) { }
   
     ngOnInit(): void {
       this.cargarUsuarios();
     }
   
     cargarUsuarios() {
-      this.auditorioServicio.obtenerUsuarios().subscribe({
+      this.usuarioServicio.obtenerUsuarios().subscribe({
         next: (registros: any) => {
           console.log("Registros devueltos desde API: ", registros);
           this.usuarios = registros.datos;
@@ -31,4 +31,20 @@ export class UsuarioListar {
         }
       });
     }
+
+    eliminarUsuario(id:number): void {
+    if (confirm('¿Estás seguro de marcar este usuario como inactivo?')) {
+      this.usuarioServicio.eliminarUsuario(id).subscribe({
+        next: (respuesta) => {
+          console.log('Respuesta del backend: ', respuesta, 'ID con borrado logico: ', id);
+          alert('Usuario marcado como inactivo correctamente.');
+          this.cargarUsuarios(); //Refrescamos la tabla despues
+        },
+        error: (err) => {
+          console.error('Error al marcar usuario como inactivo: ', err);
+          alert('Error al desactivar el usuario.');
+        },
+      });
+    }
+  }
 }

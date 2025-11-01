@@ -28,8 +28,9 @@
       <small class="text-muted ms-3">
         La contraseña debe incluir: al menos 6 caracteres, una letra mayúscula, una minúscula, un número y un símbolo.
       </small>
-      <input
-        type="password"
+      <div class="input-group">
+        <input
+        [type]="verContrasena ? 'text' : 'password'"
         id="contraseña"
         name="contraseña"
         [(ngModel)]="usuario['contraseña']"
@@ -39,18 +40,24 @@
         class="form-control"
         [class.is-invalid]="contrasena.invalid && contrasena.touched"
         [class.is-valid]="contrasena.valid && contrasena.touched"
-      />
+        />
+        <button type="button" class="btn btn-outline-secondary" (click)="toggleVerContrasena()">
+          <i [class]="verContrasena ? 'bi bi-eye-slash' : 'bi bi-eye'"></i>
+        </button>
+        </div>
       <div *ngIf="contrasena.invalid && contrasena.touched" class="invalid-feedback">
         La contraseña debe tener al menos 6 caracteres, una mayúscula, una minúscula, un número y un símbolo.
       </div>
     </div>
 
-    <!-- CONFIRMAR CONTRASEÑA -->
+     <!-- CONFIRMAR CONTRASEÑA -->
     <div class="mb-3">
       <label for="confirmar_contrasena" class="form-label">Confirmar contraseña</label>
-      <input
-        type="password"
-        id="confirmar_contrasena"
+      <div class="input-group">
+
+          <input
+          [type]="verConfirmar ? 'text' : 'password'"
+          id="confirmar_contrasena"
         name="confirmar_contrasena"
         [(ngModel)]="confirmar_contrasena"
         #confirmar_contrasenaCampo="ngModel"
@@ -59,12 +66,15 @@
         class="form-control"
         [class.is-invalid]="confirmar_contrasenaCampo.touched && confirmar_contrasena !== usuario['contraseña']"
         [class.is-valid]="confirmar_contrasenaCampo.touched && confirmar_contrasena === usuario['contraseña']"
-      />
+        />
+        <button type="button" class="btn btn-outline-secondary" (click)="toggleVerConfirmar()">
+            <i [class]="verConfirmar ? 'bi bi-eye-slash' : 'bi bi-eye'"></i>
+        </button>
+    </div>
        <div *ngIf="confirmar_contrasenaCampo.touched && confirmar_contrasena !== usuario['contraseña']" class="invalid-feedback">
         Las contraseñas no coinciden.
       </div>
     </div>
-
     <!-- ROL -->
     <div class="mb-3">
       <label for="rol" class="form-label">Rol</label>
@@ -102,7 +112,7 @@
       />
     </div>
 
-    <!-- ESTADO -->
+     <!-- ESTADO -->
     <div class="mb-3">
       <label for="estado" class="form-label">Estado</label>
       <select
@@ -118,6 +128,9 @@
         <option value="" disabled selected>Seleccione un estado</option>
         <option value="Activo">Activo</option>
         <option value="Inactivo">Inactivo</option>
+        <option value="Pendiente">Pendiente</option>
+        <option value="Suspendido">Suspendido</option>
+        <option value="Archivado">Archivado</option>
       </select>
       <div *ngIf="estado.invalid && estado.touched" class="invalid-feedback">
         Debe seleccionar un estado.

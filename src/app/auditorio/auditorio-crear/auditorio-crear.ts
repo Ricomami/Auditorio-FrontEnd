@@ -31,15 +31,14 @@ export class AuditorioCrear {
   ) {}
 
   CrearAuditorio(): void {
-
     this.mensajeExito = null;
     this.mensajeError = null;
 
     this.auditorioServicio.crearAuditorio(this.auditorio).subscribe({
       next: (respuesta) => {
         console.log('Auditorio creado correctamente: ', respuesta);
-        alert('Auditorio creado exitosamente.');
-        this.route.navigate(['/auditorio']); //Redirigimos a la vista de 'listar'
+        this.mensajeExito = 'Auditorio creado exitosamente.';
+        setTimeout(() => this.route.navigate(['/auditorio']), 1500); //Redirigimos a la vista de 'listar'
       },
       error: (err) => {
         console.error('Error al crear el auditorio: ', err);

@@ -25,6 +25,16 @@ export class UsuarioCrear {
 
   confirmar_contrasena: string='';
 
+  verContrasena: boolean = false;
+  toggleVerContrasena(): void {
+    this.verContrasena = !this.verContrasena;
+  }
+
+  verConfirmar: boolean = false;
+  toggleVerConfirmar(): void {
+    this.verConfirmar = !this.verConfirmar;
+  }
+
   mensajeExito: string | null = null;
   mensajeError: string | null = null;
 
@@ -33,15 +43,14 @@ export class UsuarioCrear {
   ) { }
 
   CrearUsuario(): void {
-
     this.mensajeExito = null;
     this.mensajeError = null;
 
     this.usuarioServicio.crearUsuario(this.usuario).subscribe({
       next: (respuesta) => {
         console.log('Usuario creado correctamente: ', respuesta);
-        alert('Usuario creado exitosamente.');
-        this.route.navigate(['/usuario']); //Redirigimos a la vista de 'listar'
+        this.mensajeExito = 'Usuario creado exitosamente.';
+        setTimeout(() => this.route.navigate(['/usuario']), 1500); //Redirigimos a la vista de 'listar'
       },
       error: (err) => {
         console.error('Error al crear el usuario: ', err);
