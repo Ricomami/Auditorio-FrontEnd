@@ -30,4 +30,20 @@ export class FuncionListar {
         }
       });
     }
+
+    eliminarFuncion(id:number): void {
+    if (confirm('¿Estás seguro de marcar este funcion como inactivo?')) {
+      this.funcionServicio.eliminarFuncion(id).subscribe({
+        next: (respuesta) => {
+          console.log('Respuesta del backend: ', respuesta, 'ID con borrado logico: ', id);
+          alert('Funcion marcada como inactiva correctamente.');
+          this.cargarFunciones(); //Refrescamos la tabla despues
+        },
+        error: (err) => {
+          console.error('Error al marcar funcion como inactiva: ', err);
+          alert('Error al desactivar el funcion.');
+        },
+      });
+    }
+  }
 }
