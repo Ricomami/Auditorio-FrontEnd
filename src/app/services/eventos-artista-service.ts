@@ -7,7 +7,7 @@ import { EventosArtista } from '../interfaces/eventos-artista';
   providedIn: 'root'
 })
 export class EventosArtistaService {
-  private apiURL = "http://localhost:3000/evento_artistas/";
+  private apiURL = "http://localhost:3000/evento_artistas";
 
   constructor( private http: HttpClient ) {}
 
@@ -15,19 +15,19 @@ export class EventosArtistaService {
     return this.http.get<EventosArtista[]>(this.apiURL);
   }
 
-  obtenerEventosArtistaPorId(id:number): Observable<EventosArtista> {
-    return this.http.get<EventosArtista>(`${this.apiURL}/${id}`);
+  obtenerEventosArtistaPorId(evento_id:number, artista_id:number): Observable<EventosArtista> {
+    return this.http.get<EventosArtista>(`${this.apiURL}/${evento_id}/${artista_id}`);
   }
 
   crearEventosArtista(eventosartista: EventosArtista): Observable<EventosArtista> {
     return this.http.post<EventosArtista>(this.apiURL, eventosartista);
   }
 
-  actualizarEventosArtista(id: number, eventosartista: EventosArtista): Observable<EventosArtista> {
-    return this.http.put<EventosArtista>(`${this.apiURL}/${id}`, eventosartista);
+  actualizarEventosArtista(evento_id: number, artista_id: number, eventosartista: EventosArtista): Observable<EventosArtista> {
+    return this.http.put<EventosArtista>(`${this.apiURL}/${evento_id}/${artista_id}`, eventosartista);
   }
 
-  eliminarEventosArtista(id: number): Observable<any> {
-    return this.http.delete(`${this.apiURL}/${id}`);
+  eliminarEventosArtista(evento_id: number, artista_id:number): Observable<any> {
+    return this.http.delete(`${this.apiURL}/${evento_id}/${artista_id}`);
   }
 }

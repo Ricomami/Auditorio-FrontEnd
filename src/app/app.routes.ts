@@ -73,7 +73,7 @@ export const routes: Routes = [
 
     {path: 'eventos_artista', component: EventosArtistaListar },
     {path: 'eventos_artista/crear', component: EventosArtistaCrear},
-    {path: 'eventos_artista/editar/:id', component: EventosArtistaEditar},
+    {path: 'eventos_artista/editar/:evento_id/:artista_id', component: EventosArtistaEditar},
 
     {path: 'pago', component: PagoListar },
     {path: 'pago/crear', component: PagoCrear},
