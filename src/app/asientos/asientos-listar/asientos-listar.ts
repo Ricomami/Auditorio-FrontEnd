@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Asiento } from '../../interfaces/asiento';
@@ -30,5 +30,21 @@ export class AsientosListar {
         console.error("Error al obtener los asientos: ", err);
       }
     });
+  }
+
+  eliminarAsiento(id:number): void {
+    if (confirm('¿Estás seguro de marcar este asiento como inactivo?')) {
+      this.asientoServicio.eliminarAsiento(id).subscribe({
+        next: (respuesta) => {
+          console.log('Respuesta del backend: ', respuesta, 'ID con borrado logico: ', id);
+          alert('Asiento marcado como inactivo correctamente.');
+          this.cargarAsientos(); //Refrescamos la tabla despues
+        },
+        error: (err) => {
+          console.error('Error al marcar asiento como inactivo: ', err);
+          alert('Error al desactivar el asiento.');
+        },
+      });
+    }
   }
 }

@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { Asiento } from '../interfaces/asiento';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AsientoService {
-  private apiURL = "http://localhost:3000/asientos/";
+  private apiURL = "http://localhost:3000/asientos";
 
   constructor( private http: HttpClient ) {}
 
@@ -15,16 +15,16 @@ export class AsientoService {
     return this.http.get<Asiento[]>(this.apiURL);
   }
 
-  obtenerAsientoPorId(id:number): Observable<Asiento> {
+  obtenerAsientoPorId(id:number) {
     return this.http.get<Asiento>(`${this.apiURL}/${id}`);
   }
 
-  crearAsiento(auditorio: Asiento): Observable<Asiento> {
-    return this.http.post<Asiento>(this.apiURL, auditorio);
+  crearAsiento(asiento: Asiento): Observable<Asiento> {
+    return this.http.post<Asiento>(this.apiURL, asiento);
   }
 
-  actualizarAsiento(id: number, auditorio: Asiento): Observable<Asiento> {
-    return this.http.put<Asiento>(`${this.apiURL}/${id}`, auditorio);
+  actualizarAsiento(id: number, asiento: Asiento) {
+    return this.http.put(`${this.apiURL}/${id}`, asiento);
   }
 
   eliminarAsiento(id: number): Observable<any> {

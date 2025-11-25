@@ -20,7 +20,7 @@
         [class.is-invalid]="nombre.invalid && nombre.touched"
         [class.is-valid]="nombre.valid && nombre.touched"
       />
-      <div *ngIf="nombre.invalid && nombre.touched" class="invalid-feedback">
+      <div *ngIf ="nombre.invalid && nombre.touched" class="invalid-feedback">
         El nombre es obligatorio y debe tener al menos 3 caracteres.
       </div>
     </div>
