@@ -17,7 +17,7 @@ export class AuditorioEditar implements OnInit {
     nombre: '',
     capacidad: 0,
     direccion: '',
-    imagen: null,
+    imagen_auditorio: null,
     estado: '',
     created_at: '',
     updated_at: ''
@@ -40,12 +40,17 @@ export class AuditorioEditar implements OnInit {
     }
   }
 
+  selectedFile!: File;
+  onFileSelected(event: any) {
+    this.selectedFile = event.target.files[0];
+  }
+  
   // Obtenemos los datos del auditorio a editar
   cargarAuditorio(id: number): void {
     this.auditorioServicio.obtenerAuditorioPorId(id).subscribe({
       next: (data: any) => {
         console.log("Registros devueltos desde API: ", data)
-        this.auditorio = data.datos[0];
+        this.auditorio = data.datos;
       },
       error: (err) => {
         console.error('Error al cargar el auditorio:', err);
@@ -59,7 +64,20 @@ export class AuditorioEditar implements OnInit {
     this.mensajeExito = null;
     this.mensajeError = null;
 
-    this.auditorioServicio.actualizarAuditorio(this.auditorio.id_auditorio, this.auditorio).subscribe({
+    //Creamos primero el FormData para poder enviar la nueva imagen en caso de que exista
+    const formData = new FormData();
+
+    formData.append('nombre', this.auditorio.nombre);
+    formData.append('capacidad', String(this.auditorio.capacidad));
+    formData.append('direccion', this.auditorio.direccion);
+    formData.append('estado', this.auditorio.estado);
+    
+    //Enviamos la imagen si existe
+    if (this.selectedFile) {
+      formData.append('imagen_auditorio', this.selectedFile);
+    }
+    
+    this.auditorioServicio.actualizarAuditorio(this.auditorio.id_auditorio, formData).subscribe({
       next: (respuesta) => {
         console.log('Auditorio actualizado correctamente:', respuesta, 'Datos enviados: ', this.auditorio);
         this.mensajeExito = 'Auditorio actualizado exitosamente.';

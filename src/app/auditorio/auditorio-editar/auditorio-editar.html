@@ -63,22 +63,25 @@
       </div>
     </div>
 
+    <!-- VISTA PREVIA DE LA IMAGEN EXISTENTE -->
+     <img 
+     [src]="auditorio.imagen_auditorio" 
+     alt="Auditorio"
+     loading="lazy"
+     width="450"
+     style="object-fit: cover; border-radius: 8px;" />
+
     <!-- IMAGEN -->
     <div class="mb-3">
-      <label for="imagen" class="form-label">Imagen</label>
+      <label for="imagen_auditorio" class="form-label">Imagen</label>
       <input
         type="file"
-        id="imagen"
-        name="imagen"
-        [(ngModel)]="auditorio.imagen"
-        #imagen="ngModel"
+        id="imagen_auditorio"
+        name="imagen_auditorio"
+        accept="image/*"
+        (change)="onFileSelected($event)"
         class="form-control"
-        [class.is-invalid]="imagen.invalid && imagen.touched"
-        [class.is-valid]="imagen.valid && imagen.touched"
-      />
-      <div *ngIf="imagen.invalid && imagen.touched" class="invalid-feedback">
-        Ingrese una imagen valida. 
-      </div>
+        />
     </div>
 
     <!-- ESTADO -->

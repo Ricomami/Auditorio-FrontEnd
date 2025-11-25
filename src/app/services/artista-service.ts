@@ -20,7 +20,7 @@ export class ArtistaService {
   }
 
   crearArtista(artista: FormData) {
-    return this.http.post(`${this.apiURL}`, artista);
+    return this.http.post(this.apiURL, artista);
   }
 
   actualizarArtista(id: number, artista: FormData) {

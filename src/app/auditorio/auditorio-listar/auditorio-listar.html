@@ -20,13 +20,19 @@
     <tbody>
       <tr *ngFor="let auditorio of auditorios">
         <th scope="row"> {{ auditorio.id_auditorio }}</th>
-        <td>{{ auditorio.nombre }}</td>
-        <td>{{ auditorio.capacidad}}</td>
-        <td>{{ auditorio.direccion }}</td>
-        <td>{{ auditorio.imagen }}</td>
-        <td>{{ auditorio.estado }}</td>
-        <td>{{ auditorio.updated_at | date: 'short' }}</td>
-        <td>{{ auditorio.updated_at | date: 'short' }}</td>
+        <td class="justify-content-center">{{ auditorio.nombre }}</td>
+        <td class="justify-content-center">{{ auditorio.capacidad}}</td>
+        <td class="justify-content-center">{{ auditorio.direccion }}</td>
+        <td class="justify-content-center"><img 
+          [src]="auditorio.imagen_auditorio" 
+          alt="{{auditorio.imagen_auditorio}}"
+          loading="lazy"
+          width="250"
+          height="250"
+          style="object-fit: cover; border-radius: 8px;" /></td>
+        <td class="justify-content-center">{{ auditorio.estado }}</td>
+        <td class="justify-content-center">{{ auditorio.updated_at | date: 'short' }}</td>
+        <td class="justify-content-center">{{ auditorio.updated_at | date: 'short' }}</td>
         <td>
           <button class="btn btn-outline-primary btn-sm" [routerLink]="['/auditorio/editar',auditorio.id_auditorio]">
             Editar

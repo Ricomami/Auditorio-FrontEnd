@@ -19,12 +19,11 @@ export class AuditorioService {
     return this.http.get<Auditorio>(`${this.apiURL}/${id}`);
   }
 
-  //Esperamos especificamente el retorno de nuestra API backend con Express 
-  crearAuditorio(auditorio: Auditorio): Observable<CrearAuditorioRespuesta> {
-    return this.http.post<CrearAuditorioRespuesta>(this.apiURL, auditorio);
+  crearAuditorio(auditorio: FormData) {
+    return this.http.post(this.apiURL, auditorio);
   }
 
-  actualizarAuditorio(id: number, auditorio: Auditorio) {
+  actualizarAuditorio(id: number, auditorio: FormData) {
     return this.http.put(`${this.apiURL}/${id}`, auditorio);
   }
 
