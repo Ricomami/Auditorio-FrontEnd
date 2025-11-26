@@ -43,7 +43,7 @@ export class EntradasCrear {
         setTimeout(() => this.route.navigate(['/entrada']), 1500);
       },
       error: (err) => {
-        console.error('Error al crear el entrada: ', err);
+        console.error('Error al crear la entrada: ', err);
         this.mensajeError = 'Ocurrió un error al crear el entrada.';
       }
     });
