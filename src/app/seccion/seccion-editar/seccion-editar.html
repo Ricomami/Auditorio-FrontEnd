@@ -4,6 +4,7 @@
 
   <form #formulario="ngForm" (ngSubmit)="actualizarSeccion()" class="mt-5 needs-validation" novalidate>
         <h4 class="my-4">ID de seccion: {{seccion.id_seccion}} </h4>
+
     <!-- NOMBRE SECCION -->
     <div class="mb-3">
          <label for="nombre_seccion" class="form-label">Nombre de la seccion</label>
@@ -61,24 +62,27 @@
       </div>
     </div>
 
+
+    <!-- MOSTRAMOS LA IMAGEN PREVIA DEL ARTISTA -->
+    <img 
+          [src]="seccion.imagen_seccion" 
+          alt="Artista" 
+          loading="lazy" 
+          width="450"
+          style="object-fit: cover; border-radius: 8px;" />
+    
     <!-- IMAGEN -->
-    <div class="mb-3">
+    <div class="my-3">
       <label for="imagen" class="form-label">Imagen</label>
       <input
-        type="text"
+        type="file"
         id="imagen"
         name="imagen"
-        [(ngModel)]="seccion.imagen_seccion"
-        #imagen="ngModel"
+        accept="image/*"
+        (change)="onFileSelected($event)"
         class="form-control"
-        [class.is-invalid]="imagen.invalid && imagen.touched"
-        [class.is-valid]="imagen.valid && imagen.touched"
       />
-      <div *ngIf="imagen.invalid && imagen.touched" class="invalid-feedback">
-        Ingrese una URL válida (debe comenzar con http o https).
-      </div>
     </div>
-
     
         <!-- ESTADO -->
     <div class="mb-3">

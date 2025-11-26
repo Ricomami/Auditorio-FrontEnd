@@ -24,27 +24,45 @@ export class SeccionCrear {
   };
 
   mensajeExito: string | null = null;
-  mensajeError: string | null = null;
-
-  constructor(private seccionServicio: SeccionService,
-    private route: Router
-  ) {}
-
-  CrearSeccion(): void {
-
-    this.mensajeExito = null;
-    this.mensajeError = null;
-
-    this.seccionServicio.crearSeccion(this.seccion).subscribe({
-      next: (respuesta) => {
-        console.log('Seccion creado correctamente: ', respuesta);
-        alert('Seccion creada exitosamente.');
-        this.route.navigate(['/seccion']); //Redirigimos a la vista de 'listar'
-      },
-      error: (err) => {
-        console.error('Error al crear la seccion: ', err);
-        this.mensajeError='Ocurrió un error al crear el seccion.';
+    mensajeError: string | null = null;
+  
+    constructor(private seccionServicio: SeccionService,
+      private route: Router
+    ) { }
+  
+    selectedFile!: File;
+    onFileSelected(event: any) {
+      this.selectedFile = event.target.files[0];
+    }
+  
+    CrearSeccion(): void {
+      this.mensajeExito = null;
+      this.mensajeError = null;
+  
+      //Creamos FormData para poder enviar el archivo
+      const formData = new FormData();
+  
+      formData.append('nombre_seccion', this.seccion.nombre_seccion);
+      formData.append('precio_base', String(this.seccion.precio_base));
+      formData.append('auditorio_id', String(this.seccion.auditorio_id));
+      formData.append("estado", this.seccion.estado);
+  
+      // 👇 Importante: enviar la imagen si existe
+      if (this.selectedFile) {
+        formData.append("imagen_seccion", this.selectedFile);
       }
-    });
-  }
+  
+      this.seccionServicio.crearSeccion(formData).subscribe({
+        next: (respuesta) => {
+          console.log('Seccion creada correctamente: ', respuesta);
+          this.mensajeExito = 'Seccion creada exitosamente.';
+          setTimeout(() => this.route.navigate(['/seccion']), 1500);
+        },
+        error: (err) => {
+          console.error('Error al crear la seccion: ', err);
+          this.mensajeError = 'Ocurrió un error al crear la seccion.';
+        }
+      });
+  
+    }
 }

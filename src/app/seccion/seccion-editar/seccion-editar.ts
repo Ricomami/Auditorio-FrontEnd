@@ -23,52 +23,70 @@ export class SeccionEditar implements OnInit{
     updated_at: ''
   };
 
-  mensajeExito: string | null = null;
-  mensajeError: string | null = null;
-
-  constructor(
-    private seccionServicio: SeccionService,
-    private route: ActivatedRoute,
-    private router: Router
-  ) {}
-
-  // Ejecutamos al cargar el componente
-  ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
-    if (id) {
-      this.cargarSeccionPorId(Number(id));
+    mensajeExito: string | null = null;
+    mensajeError: string | null = null;
+  
+    constructor(
+      private seccionServicio: SeccionService,
+      private route: ActivatedRoute,
+      private router: Router
+    ) {}
+  
+    // Ejecutamos al cargar el componente
+    ngOnInit(): void {
+      const id = this.route.snapshot.paramMap.get('id');
+      if (id) {
+        this.cargarSeccion(Number(id));
+      }
     }
-  }
-
-  // Obtenemos los datos del seccion a editar
-  cargarSeccionPorId(id: number): void {
-    this.seccionServicio.obtenerSeccionPorId(id).subscribe({
-      next: (data: any) => {
-        console.log("Registros devueltos desde API: ", data)
-        this.seccion = data.datos;
-      },
-      error: (err) => {
-        console.error('Error al cargar el seccion:', err);
-        this.mensajeError = 'No se pudo cargar el seccion.';
+  
+    selectedFile!: File;
+    onFileSelected(event: any) {
+      this.selectedFile = event.target.files[0];
+    }
+  
+    // Obtenemos los datos del seccion a editar
+    cargarSeccion(id: number): void {
+      this.seccionServicio.obtenerSeccionPorId(id).subscribe({
+        next: (data: any) => {
+          console.log("Registros devueltos desde API: ", data)
+          this.seccion = data.datos;
+        },
+        error: (err) => {
+          console.error('Error al cargar la seccion:', err);
+          this.mensajeError = 'No se pudo cargar la seccion.';
+        }
+      });
+    }
+  
+    // Enviar los cambios al backend
+    actualizarSeccion(): void {
+      this.mensajeExito = null;
+      this.mensajeError = null;
+  
+      //Creamos primero el FormData para enviar la nueva imagen si se seleccionó una
+      const formData = new FormData();
+  
+      formData.append('nombre_seccion', this.seccion.nombre_seccion);
+      formData.append('precio_base', String(this.seccion.precio_base));
+      formData.append('auditorio_id', String(this.seccion.auditorio_id));
+      formData.append("estado", this.seccion.estado);
+  
+      // 👇 Importante: enviar la imagen si existe
+      if (this.selectedFile) {
+        formData.append("imagen_seccion", this.selectedFile);
       }
-    });
-  }
-
-  // Enviar los cambios al backend
-  actualizarSeccion(): void {
-    this.mensajeExito = null;
-    this.mensajeError = null;
-
-    this.seccionServicio.actualizarSeccion(this.seccion.id_seccion, this.seccion).subscribe({
-      next: (respuesta) => {
-        console.log('Seccion actualizada correctamente:', respuesta, 'Datos enviados: ', this.seccion);
-        this.mensajeExito = 'Seccion actualizada exitosamente.';
-        setTimeout(() => this.router.navigate(['/seccion']), 1500);
-      },
-      error: (err) => {
-        console.error('Error al actualizar la seccion:', err);
-        this.mensajeError = 'Ocurrió un error al actualizar la seccion.';
-      }
-    });
-  }
+  
+      this.seccionServicio.actualizarSeccion(this.seccion.id_seccion, formData).subscribe({
+        next: (respuesta) => {
+          console.log('Seccion actualizado correctamente:', respuesta, 'Datos enviados: ', this.seccion);
+          this.mensajeExito = 'Seccion actualizado exitosamente.';
+          setTimeout(() => this.router.navigate(['/seccion']), 1500);
+        },
+        error: (err) => {
+          console.error('Error al actualizar el seccion:', err);
+          this.mensajeError = 'Ocurrió un error al actualizar el seccion.';
+        }
+      });
+    }
 }

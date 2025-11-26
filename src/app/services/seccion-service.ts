@@ -15,16 +15,16 @@ export class SeccionService {
     return this.http.get<Seccion[]>(this.apiURL);
   }
 
-  obtenerSeccionPorId(id:number): Observable<Seccion> {
-    return this.http.get<Seccion>(`${this.apiURL}/${id}`);
+  obtenerSeccionPorId(id:number) {
+    return this.http.get(`${this.apiURL}/${id}`);
   }
 
-  crearSeccion(seccion: Seccion): Observable<Seccion> {
-    return this.http.post<Seccion>(this.apiURL, seccion);
+  crearSeccion(seccion: FormData) {
+    return this.http.post(this.apiURL, seccion);
   }
 
-  actualizarSeccion(id: number, seccion: Seccion): Observable<Seccion> {
-    return this.http.put<Seccion>(`${this.apiURL}/${id}`, seccion);
+  actualizarSeccion(id: number, seccion: FormData) {
+    return this.http.put(`${this.apiURL}/${id}`, seccion);
   }
 
   eliminarSeccion(id: number): Observable<any> {

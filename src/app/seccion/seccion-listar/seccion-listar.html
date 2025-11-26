@@ -20,13 +20,19 @@
       <tbody>
         <tr *ngFor="let seccion of secciones ">
           <th scope="row"> {{ seccion.id_seccion }}</th>
-          <td>{{ seccion.nombre_seccion }}</td>
-          <td>{{ seccion.precio_base }}</td>
-          <td>{{ seccion.auditorio_id }}</td>
-          <td>{{ seccion.imagen_seccion }}</td>
-          <td>{{ seccion.estado }}</td>
-          <td>{{ seccion.created_at | date: 'short' }}</td>
-          <td>{{ seccion.updated_at | date: 'short' }}</td>
+          <td class="justify-content-center">{{ seccion.nombre_seccion }}</td>
+          <td class="justify-content-center">{{ seccion.precio_base }}</td>
+          <td class="justify-content-center">{{ seccion.auditorio_id }}</td>
+          <td class="justify-content-center"><img 
+          [src]="seccion.imagen_seccion" 
+          alt="{{seccion.nombre_seccion}}" 
+          loading="lazy" 
+          width="250"
+          height="250" 
+          style="object-fit: cover; border-radius: 8px;" /></td>
+          <td class="justify-content-center">{{ seccion.estado }}</td>
+          <td class="justify-content-center">{{ seccion.created_at | date: 'short' }}</td>
+          <td class="justify-content-center">{{ seccion.updated_at | date: 'short' }}</td>
           <td>
             <button class="btn btn-outline-primary btn-sm" [routerLink]="['/seccion/editar',seccion.id_seccion]">
               Editar
