@@ -15,7 +15,7 @@ export class UsuarioCrear {
   usuario: Usuario = {
   id_usuario: 0,
   nombre_usuario: '',
-  ['contraseña']: '',
+  password: '',
   rol: '',
   imagen_usuario: '',
   estado: '',
@@ -35,6 +35,7 @@ export class UsuarioCrear {
     this.verConfirmar = !this.verConfirmar;
   }
 
+
   mensajeExito: string | null = null;
   mensajeError: string | null = null;
 
@@ -42,11 +43,30 @@ export class UsuarioCrear {
     private route: Router
   ) { }
 
+  selectedFile!: File;
+  onFileSelected(event: any) {
+    this.selectedFile = event.target.files[0];
+  }
+
   CrearUsuario(): void {
     this.mensajeExito = null;
     this.mensajeError = null;
 
-    this.usuarioServicio.crearUsuario(this.usuario).subscribe({
+    //Creamos FormData para poder enviar el archivo
+    const formData = new FormData();
+
+    formData.append('nombre_usuario', this.usuario.nombre_usuario);
+    formData.append("password", this.usuario.password);
+    formData.append("rol", this.usuario.rol);
+    formData.append("estado", this.usuario.estado);
+
+    // Enviamos la imagen, si existe
+    if (this.selectedFile) {
+      formData.append("imagen_usuario", this.selectedFile);
+    }
+
+    console.log(formData);
+    this.usuarioServicio.crearUsuario(formData).subscribe({
       next: (respuesta) => {
         console.log('Usuario creado correctamente: ', respuesta);
         this.mensajeExito = 'Usuario creado exitosamente.';

@@ -15,16 +15,16 @@ export class UsuarioService {
     return this.http.get<Usuario[]>(this.apiURL);
   }
 
-  obtenerUsuarioPorId(id:number): Observable<Usuario> {
+  obtenerUsuarioPorId(id:number) {
     return this.http.get<Usuario>(`${this.apiURL}/${id}`);
   }
 
-  crearUsuario(usuario: Usuario): Observable<Usuario> {
-    return this.http.post<Usuario>(this.apiURL, usuario);
+  crearUsuario(usuario: FormData) {
+    return this.http.post(this.apiURL, usuario);
   }
 
-  actualizarUsuario(id: number, usuario: Usuario): Observable<Usuario> {
-    return this.http.put<Usuario>(`${this.apiURL}/${id}`, usuario);
+  actualizarUsuario(id: number, usuario: FormData) {
+    return this.http.put(`${this.apiURL}/${id}`, usuario);
   }
 
   eliminarUsuario(id: number): Observable<any> {

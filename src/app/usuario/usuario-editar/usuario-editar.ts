@@ -15,7 +15,7 @@ export class UsuarioEditar implements OnInit{
 usuario: Usuario = {
     id_usuario: 0,
     nombre_usuario: '',
-    ['contraseña']:'',
+    password:'',
     rol: '',
     imagen_usuario: '',
     estado: '',
@@ -52,6 +52,11 @@ usuario: Usuario = {
     }
   }
 
+  selectedFile!: File;
+  onFileSelected(event: any) {
+    this.selectedFile = event.target.files[0];
+  }
+  
   // Obtenemos los datos del usuario a editar
   cargarUsuarioPorId(id: number): void {
     this.usuarioServicio.obtenerUsuarioPorId(id).subscribe({
@@ -71,7 +76,21 @@ usuario: Usuario = {
     this.mensajeExito = null;
     this.mensajeError = null;
 
-    this.usuarioServicio.actualizarUsuario(this.usuario.id_usuario, this.usuario).subscribe({
+    //Creamos primero el FormData para enviar la nueva imagen si se seleccionó una
+    const formData = new FormData();
+    
+    formData.append('nombre_usuario', this.usuario.nombre_usuario);
+    formData.append("password", this.usuario.password);
+    formData.append("rol", this.usuario.rol);
+    formData.append("estado", this.usuario.estado);
+
+    // Enviamos la imagen, si existe
+    if (this.selectedFile) {
+      formData.append("imagen_usuario", this.selectedFile);
+    }
+
+    console.log(formData);
+    this.usuarioServicio.actualizarUsuario(this.usuario.id_usuario, formData).subscribe({
       next: (respuesta) => {
         console.log('Usuario actualizado correctamente:', respuesta, 'Datos enviados: ', this.usuario);
         this.mensajeExito = 'Usuario actualizado exitosamente.';

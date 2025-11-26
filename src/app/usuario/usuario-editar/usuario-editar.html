@@ -2,30 +2,29 @@
     <h1 class="mt-3">Editar usuario</h1>
     <a [routerLink]="['/usuario']" href="#">Regresar</a>
 
-    <form #formulario="ngForm" (ngSubmit)="actualizarUsuario()" class="mt-5 needs-validation" novalidate>
+    <form #formulario="ngForm" (ngSubmit)="actualizarUsuario()" class="mt-5 needs-validation" novalidate enctype="multipart/form-data">
             <h4 class="my-4">ID de usuario: {{usuario.id_usuario}} </h4>
 
+      <!-- NOMBRE_USUARIO -->
+      <div class="mb-3">
+          <label for="nombre_usuario" class="form-label">Actualizar Nombre </label>
+          <input
+          type="text"
+          id="nombre_usuario"
+          name="nombre_usuario"
+          [(ngModel)]="usuario.nombre_usuario"
+          #nombre_usuario="ngModel"
+          required
+          minlenght="4"
+          class="form-control"
+          [class.is-invalid]="nombre_usuario.invalid && nombre_usuario.touched"
+          [class.is-valid]="nombre_usuario.valid && nombre_usuario.touched" />
+          <div *ngIf="nombre_usuario.invalid && nombre_usuario.touched" class="invalid-feedback">
+              El nombre es obligatorio y debe tener al menos 3 caracteres.
+          </div>
+      </div>
 
-        <!-- NOMBRE_USUARIO -->
-        <div class="mb-3">
-            <label for="nombre_usuario" class="form-label">Actualizar Nombre </label>
-            <input
-            type="text"
-            id="nombre_usuario"
-            name="nombre_usuario"
-            [(ngModel)]="usuario.nombre_usuario"
-            #nombre_usuario="ngModel"
-            required
-            minlenght="4"
-            class="form-control"
-            [class.is-invalid]="nombre_usuario.invalid && nombre_usuario.touched"
-            [class.is-valid]="nombre_usuario.valid && nombre_usuario.touched" />
-            <div *ngIf="nombre_usuario.invalid && nombre_usuario.touched" class="invalid-feedback">
-                El nombre es obligatorio y debe tener al menos 3 caracteres.
-            </div>
-        </div>
-
-            <!-- CONTRASEÑA -->
+        <!-- CONTRASEÑA -->
     <div class="mb-3">
       <label for="contraseña" class="form-label">Nueva contraseña</label>
       <small class="text-muted ms-3">
@@ -37,7 +36,7 @@
           [type]="verContrasena ? 'text' : 'password'"
           id="contraseña"
           name="contraseña"
-          [(ngModel)]="usuario['contraseña']"
+          [(ngModel)]="usuario.password"
           #contrasena="ngModel"
           required
           pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{6,}$"
@@ -68,14 +67,14 @@
         required
         minlength="6"
         class="form-control"
-        [class.is-invalid]="confirmar_contrasenaCampo.touched && confirmar_contrasena !== usuario['contraseña']"
-        [class.is-valid]="confirmar_contrasenaCampo.touched && confirmar_contrasena === usuario['contraseña']"
+        [class.is-invalid]="confirmar_contrasenaCampo.touched && confirmar_contrasena !== usuario.password"
+        [class.is-valid]="confirmar_contrasenaCampo.touched && confirmar_contrasena === usuario.password"
         />
         <button type="button" class="btn btn-outline-secondary" (click)="toggleVerConfirmar()">
             <i [class]="verConfirmar ? 'bi bi-eye-slash' : 'bi bi-eye'"></i>
         </button>
     </div>
-       <div *ngIf="confirmar_contrasenaCampo.touched && confirmar_contrasena !== usuario['contraseña']" class="invalid-feedback">
+       <div *ngIf="confirmar_contrasenaCampo.touched && confirmar_contrasena !== usuario.password" class="invalid-feedback">
         Las contraseñas no coinciden.
       </div>
     </div>
@@ -103,15 +102,23 @@
       </div>
     </div>
 
+    <!-- MOSTRAMOS LA IMAGEN PREVIA DEL USUARIO -->
+    <img 
+          [src]="usuario.imagen_usuario" 
+          alt="Artista" 
+          loading="lazy" 
+          width="450"
+          style="object-fit: cover; border-radius: 8px;" />
+          
     <!-- IMAGEN -->
-    <div class="mb-3">
-      <label for="imagen_usuario" class="form-label">Imagen (URL)</label>
+    <div class="my-3">
+      <label for="imagen" class="form-label">Imagen</label>
       <input
-        type="text"
-        id="imagen_usuario"
-        name="imagen_usuario"
-        [(ngModel)]="usuario.imagen_usuario"
-        #imagen_usuario="ngModel"
+        type="file"
+        id="imagen"
+        name="imagen"
+        accept="image/*"
+        (change)="onFileSelected($event)"
         class="form-control"
       />
     </div>

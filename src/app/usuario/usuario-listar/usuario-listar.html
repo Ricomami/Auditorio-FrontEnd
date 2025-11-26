@@ -21,9 +21,16 @@
       <tr *ngFor="let usuario of usuarios ">
         <th scope="row"> {{ usuario.id_usuario }}</th>
         <td>{{ usuario.nombre_usuario }}</td>
-        <td>{{ usuario['contraseña'] }}</td>
+        <td>{{ usuario.password }}</td>
         <td>{{ usuario.rol }}</td>
-        <td>{{ usuario.imagen_usuario }}</td>
+        <td class="justify-content-center"><img 
+          [src]="usuario.imagen_usuario" 
+          alt="{{usuario.nombre_usuario}}" 
+          loading="lazy" 
+          width="250"
+          height="250" 
+          style="object-fit: cover; border-radius: 8px;" /></td>
+        
         <td>{{ usuario.estado }}</td>
         <td>{{ usuario.created_at | date: 'short' }}</td>
         <td>{{ usuario.updated_at | date: 'short' }}</td>
