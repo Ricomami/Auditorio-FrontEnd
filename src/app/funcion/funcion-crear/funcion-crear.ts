@@ -37,7 +37,7 @@ export class FuncionCrear {
       next: (respuesta) => {
         console.log('Funcion creado correctamente: ', respuesta);
         alert('Funcion de evento creada exitosamente.');
-        this.route.navigate(['/funcion']); //Redirigimos a la vista de 'listar'
+        setTimeout(() => this.route.navigate(['/funcion']), 1500); //Redirigimos a la vista de 'listar'
       },
       error: (err) => {
         console.error('Error al crear la funcion: ', err);

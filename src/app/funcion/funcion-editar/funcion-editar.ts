@@ -38,7 +38,7 @@ export class FuncionEditar {
       }
     }
   
-    // Obtenemos los datos del funcion a editar
+    // Obtenemos los datos de la funcion a editar
     cargarFuncion(id: number): void {
       this.funcionServicio.obtenerFuncionPorId(id).subscribe({
         next: (data: any) => {
@@ -46,8 +46,8 @@ export class FuncionEditar {
           this.funcion = data.datos;
         },
         error: (err) => {
-          console.error('Error al cargar el funcion:', err);
-          this.mensajeError = 'No se pudo cargar el funcion.';
+          console.error('Error al cargar la funcion:', err);
+          this.mensajeError = 'No se pudo cargar la funcion.';
         }
       });
     }
@@ -60,12 +60,12 @@ export class FuncionEditar {
       this.funcionServicio.actualizarFuncion(this.funcion.id_funcion, this.funcion).subscribe({
         next: (respuesta) => {
           console.log('Funcion actualizada correctamente:', respuesta, 'Datos enviados: ', this.funcion);
-          this.mensajeExito = 'Funcion actualizado exitosamente.';
+          this.mensajeExito = 'Funcion actualizada exitosamente.';
           setTimeout(() => this.router.navigate(['/funcion']), 1500);
         },
         error: (err) => {
           console.error('Error al actualizar la funcion:', err);
-          this.mensajeError = 'Ocurrió un error al actualizar el funcion.';
+          this.mensajeError = 'Ocurrió un error al actualizar la funcion.';
         }
       });
     }

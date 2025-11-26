@@ -3,25 +3,25 @@
     <a [routerLink]="['/funcion']" href="#">Regresar</a>
 
     <form #formulario="ngForm" (ngSubmit)="CrearFuncion()" class="mt-5 needs-validation" novalidate>
-
-        <!-- EVENTO_ID -->
-        <div class="mb-3">
-            <label for="evento_id" class="form-label">ID del Evento</label>
-            <input
-            type="number"
-            id="evento_id"
-            name="evento_id"
-            [(ngModel)]="funcion.evento_id"
-            #evento_id="ngModel"
-            required
-            min="1"
-            class="form-control"
-            [class.is-invalid]="evento_id.invalid && evento_id.touched"
-            [class.is-valid]="evento_id.valid && evento_id.touched"
-            />
-            <div *ngIf="evento_id.invalid && evento_id.touched" class="invalid-feedback">
-        Ingrese una id de cliente válido.
-      </div>
+      
+      <!-- EVENTO_ID -->
+      <div class="mb-3">
+        <label for="evento_id" class="form-label">ID del Evento</label>
+        <input
+          type="number"
+          id="evento_id"
+          name="evento_id"
+          [(ngModel)]="funcion.evento_id"
+          #evento_id="ngModel"
+          required
+          min="1"
+          class="form-control"
+          [class.is-invalid]="evento_id.invalid && evento_id.touched"
+          [class.is-valid]="evento_id.valid && evento_id.touched"
+        />
+        <div *ngIf="evento_id.invalid && evento_id.touched" class="invalid-feedback">
+          Ingrese una id de cliente válido.
+        </div>
     </div>
 
     
@@ -58,9 +58,9 @@
         [class.is-valid]="estado.valid && estado.touched"
       >
         <option value="" disabled selected>Seleccione un estado</option>
-        <option value="1">Activo</option>
-        <option value="2">Inactivo</option>
-        <option value="3">Mantenimiento</option>
+        <option value="Activo">Activo</option>
+        <option value="Inactivo">Inactivo</option>
+        <option value="Mantenimiento">Mantenimiento</option>
       </select>
       <div *ngIf="estado.invalid && estado.touched" class="invalid-feedback">
         Seleccione un estado válido.
@@ -69,7 +69,7 @@
 
     <!-- BOTÓN DE ENVÍO -->
     <button type="submit" class="btn btn-primary w-100" [disabled]="formulario.invalid">
-      Crear Auditorio
+      Crear Funcion
     </button>
 
     <!-- ALERTA DE ÉXITO -->

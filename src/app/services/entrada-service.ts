@@ -7,7 +7,7 @@ import { Entrada } from '../interfaces/entrada';
   providedIn: 'root'
 })
 export class EntradaService {
-  private apiURL = "http://localhost:3000/entradas/";
+  private apiURL = "http://localhost:3000/entradas";
 
   constructor( private http: HttpClient ) {}
 

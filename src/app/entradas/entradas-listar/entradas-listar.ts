@@ -19,16 +19,31 @@ export class EntradasListar {
     ngOnInit(): void {
       this.cargarEntradas();
     }
-  
-    cargarEntradas() {
+    cargarEntradas(): void {
       this.entradaServicio.obtenerEntradas().subscribe({
-        next: (registros: any) => {
-          console.log("Registros devueltos desde API: ", registros);
-          this.entradas = registros.datos;
+      next: (registros: any) => {
+        console.log("Registros devueltos desde API: ", registros);
+        this.entradas = registros.datos;
+      },
+      error: (err) => {
+        console.error("Error al obtener las entradas: ", err);
+      }
+    });
+  }
+
+  eliminarEntrada(id:number): void {
+    if (confirm('¿Estás seguro de marcar esta entrada como inactiva?')) {
+      this.entradaServicio.eliminarEntrada(id).subscribe({
+        next: (respuesta) => {
+          console.log('Respuesta del backend: ', respuesta, 'ID con borrado logico: ', id);
+          alert('Entrada marcado como inactivo correctamente.');
+          this.cargarEntradas(); //Refrescamos la tabla despues
         },
         error: (err) => {
-          console.error("Error al obtener los entradas: ", err);
-        }
+          console.error('Error al marcar la entrada como inactiva: ', err);
+          alert('Error al desactivar la entrada.');
+        },
       });
     }
+  }
   }
