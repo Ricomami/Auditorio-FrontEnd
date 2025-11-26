@@ -1,6 +1,6 @@
 <div class="container">
     <h1 class="mt-3">Editar artista.</h1>
-    <a [routerLink]="['/artista']" href="#">Regresar</a>
+    <a [routerLink]="['/artista']">Regresar</a>
 
     <form #formulario="ngForm" (ngSubmit)="actualizarArtista()" class="mt-5 needs-validation" novalidate enctype="multipart/form-data">
         <h4 class="my-4">ID de Artista: {{artista.id_artista}} </h4>

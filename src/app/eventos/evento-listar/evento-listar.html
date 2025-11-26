@@ -1,6 +1,6 @@
 <div class="container">
   <h1 class="mt-3">Lista de Eventos</h1>
-  <a [routerLink]="['/evento/crear']" href="#">Registrar nuevo evento</a>
+  <a [routerLink]="['/evento/crear']">Registrar nuevo evento</a>
 
   <table class="table table-striped text-center">
     <thead>
@@ -16,21 +16,39 @@
         <th scope="col">Estado</th>
         <th scope="col">Creado</th>
         <th scope="col">Actuaizado</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Eliminar</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let evento of eventos">
         <th scope="row">{{ evento.id_evento }}</th>
-        <td>{{ evento.nombre_evento }}</td>
-        <td>{{ evento.descripcion }}</td>
-        <td>{{ evento.imagen_evento }}</td>
-        <td>{{ evento.fecha | date: 'short' }}</td>
-        <td>{{ evento.hora_fin | date: 'short' }}</td>
-        <td>{{ evento.aforo }}</td>
-        <td>{{ evento.auditorio_id }}</td>
-        <td>{{ evento.estado }}</td>
-        <td>{{ evento.created_at }}</td>
-        <td>{{ evento.updated_at }}</td>
+        <td class="justify-content-center">{{ evento.nombre_evento }}</td>
+        <td class="justify-content-center">{{ evento.descripcion }}</td>
+        <td class="justify-content-center"><img 
+          [src]="evento.imagen_evento" 
+          alt="{{evento.nombre_evento}}" 
+          loading="lazy" 
+          width="250"
+          height="250" 
+          style="object-fit: cover; border-radius: 8px;" /></td>
+        <td class="justify-content-center">{{ evento.fecha | date: 'short' }}</td>
+        <td class="justify-content-center">{{ evento.hora_fin | date: 'short' }}</td>
+        <td class="justify-content-center">{{ evento.aforo }}</td>
+        <td class="justify-content-center">{{ evento.auditorio_id }}</td>
+        <td class="justify-content-center">{{ evento.estado }}</td>
+        <td class="justify-content-center">{{ evento.created_at }}</td>
+        <td class="justify-content-center">{{ evento.updated_at }}</td>
+        <td>
+          <button class="btn btn-outline-primary btn-sm" [routerLink]="['/evento/editar',evento.id_evento]">
+            Editar
+          </button>
+        </td>
+        <td>
+          <button class="btn btn-outline-danger btn-sm" (click)="eliminarEvento(evento.id_evento)">
+            Eliminar
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>

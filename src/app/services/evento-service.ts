@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class EventoService {
-  private apiURL = "http://localhost:3000/eventos/";
+  private apiURL = "http://localhost:3000/eventos";
 
   constructor( private http: HttpClient ) {}
 
@@ -15,16 +15,16 @@ export class EventoService {
     return this.http.get<Evento[]>(this.apiURL);
   }
 
-  obtenerEventoPorId(id:number): Observable<Evento> {
+  obtenerEventoPorId(id:number) {
     return this.http.get<Evento>(`${this.apiURL}/${id}`);
   }
 
-  crearEvento(evento: Evento): Observable<Evento> {
-    return this.http.post<Evento>(this.apiURL, evento);
+  crearEvento(evento: FormData){
+    return this.http.post(this.apiURL, evento);
   }
 
-  actualizarEvento(id: number, evento: Evento): Observable<Evento> {
-    return this.http.put<Evento>(`${this.apiURL}/${id}`, evento);
+  actualizarEvento(id: number, evento: FormData) {
+    return this.http.put(`${this.apiURL}/${id}`, evento);
   }
 
   eliminarEvento(id: number): Observable<any> {

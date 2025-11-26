@@ -18,10 +18,10 @@ export class EventoListar {
     constructor(private eventoServicio: EventoService) { }
   
     ngOnInit(): void {
-      this.cargarEntradas();
+      this.cargarEventos();
     }
   
-    cargarEntradas() {
+    cargarEventos() {
       this.eventoServicio.obtenerEventos().subscribe({
         next: (registros: any) => {
           console.log("Registros devueltos desde API: ", registros);
@@ -32,4 +32,21 @@ export class EventoListar {
         }
       });
     }
+
+    
+  eliminarEvento(id:number): void {
+    if (confirm('¿Estás seguro de marcar este evento como inactivo?')) {
+      this.eventoServicio.eliminarEvento(id).subscribe({
+        next: (respuesta) => {
+          console.log('Respuesta del backend: ', respuesta, 'ID con borrado logico: ', id);
+          alert('Evento marcado como inactivo correctamente.');
+          this.cargarEventos(); //Refrescamos la tabla despues
+        },
+        error: (err) => {
+          console.error('Error al marcar evento como inactivo: ', err);
+          alert('Error al desactivar el evento.');
+        },
+      });
+    }
+  }
 }
