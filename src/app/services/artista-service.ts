@@ -15,7 +15,7 @@ export class ArtistaService {
     return this.http.get<Artista[]>(this.apiURL);
   }
 
-  obtenerArtistaPorId(id: number){
+  obtenerArtistaPorId(id: number) {
     return this.http.get<Artista>(`${this.apiURL}/${id}`);
   }
 

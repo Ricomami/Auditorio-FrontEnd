@@ -20,15 +20,31 @@ export class ClientesListar {
       this.cargarClientes();
     }
   
-    cargarClientes() {
-      this.clienteServicio.obtenerClientes().subscribe({
-        next: (registros: any) => {
-          console.log("Registros devueltos desde API: ", registros);
-          this.clientes = registros.datos;
+    cargarClientes(): void {
+    this.clienteServicio.obtenerClientes().subscribe({
+      next: (registros: any) => {
+        console.log("Registros devueltos desde API: ", registros);
+        this.clientes = registros.datos;
+      },
+      error: (err) => {
+        console.error("Error al obtener los clientes: ", err);
+      }
+    });
+  }
+
+  eliminarCliente(id:number): void {
+    if (confirm('¿Estás seguro de marcar este cliente como inactivo?')) {
+      this.clienteServicio.eliminarCliente(id).subscribe({
+        next: (respuesta) => {
+          console.log('Respuesta del backend: ', respuesta, 'ID con borrado logico: ', id);
+          alert('Cliente marcado como inactivo correctamente.');
+          this.cargarClientes(); //Refrescamos la tabla despues
         },
         error: (err) => {
-          console.error("Error al obtener los clientes: ", err);
-        }
+          console.error('Error al marcar cliente como inactivo: ', err);
+          alert('Error al desactivar el cliente.');
+        },
       });
     }
+  }
 }
